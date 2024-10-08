@@ -1,8 +1,9 @@
 {
-  "name": "fed2-js2-ca",
+  "name": "noroff-social-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "main": "src/app.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,6 +11,19 @@
     "test": "npm run test-unit",
     "test-unit": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliNygard/NoroffSocialApp.git"
+  },
+  "keywords": [
+    "Noroff assignment"
+  ],
+  "author": "Eli Nygard <eli.nygard@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EliNygard/NoroffSocialApp/issues"
+  },
+  "homepage": "https://github.com/EliNygard/NoroffSocialApp#readme",
   "devDependencies": {
     "@babel/core": "^7.25.7",
     "@babel/preset-env": "^7.25.7",
