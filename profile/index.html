@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <h1>My profile page</h1>
+
+    <a href="/">Home</a>
+    <button data-auth="logout">Logout</button>
+
+    <form name="updateProfile" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Update your profile</legend>
+        <label for="bio">Bio</label>
+        <input type="text" name="bio" id="bio" />
+        
+        <label for="avatar">Avatar</label>
+        <input type="text" id="avatar" name="avatar"/>
+        
+        <label for="banner">Avatar</label>
+        <input type="text" id="banner" name="banner"/>
+        
+        <button>Update Profile</button>
+      </fieldset>
+    </form>
+
+    <a href="../post/create/">Create a new post</a>
+
+    <section id="profileCard"></section>
+    <section id="postsList">
+      <h2>My posts</h2>
+    </section>
+  </body>
+</html>
