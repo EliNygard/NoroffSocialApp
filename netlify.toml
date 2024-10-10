@@ -1,0 +1,3 @@
+[build]
+  command = "npm run build"  # Command to build the project (this will run `vite build`)
+  publish = "dist"  # Directory that contains the built files (output of the build process)
