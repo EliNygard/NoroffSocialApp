@@ -28,7 +28,8 @@ export async function onLogin(event) {
     const {name} = await api.auth.login(data);
     loginSuccessful = true;
     if (loginSuccessful) {
-      window.location.href = `/?view=profile&name=${name}`;
+      window.location.href = `./`;
+      // window.location.href = `/?view=profile&name=${name}`;
     }
   } catch (error) {
     console.error(error);
