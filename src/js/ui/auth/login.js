@@ -25,16 +25,16 @@ export async function onLogin(event) {
   //show loader
 
   try {
-    await api.auth.login(data);
+    const {name} = await api.auth.login(data);
     loginSuccessful = true;
+    if (loginSuccessful) {
+      window.location.href = `/?view=profile&name=${name}`;
+    }
   } catch (error) {
     console.error(error);
     alert(error);
     window.location.href = "/auth/login/";
   } finally {
-    if (loginSuccessful) {
-      window.location.href = "/";
-    }
     //hide loader
   }
 }
