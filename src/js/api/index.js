@@ -202,6 +202,9 @@ export default class SocialAPI {
       } catch (error) {
         console.error(error);
         alert("Could not logout. Please try again.");
+      } finally {
+        // clear local storage
+        localStorage.clear()
       }
     },
   };
