@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install the packages
-        run: npm run ci
+        run: npm ci
       - name: Build Vite
         run: npm run build
       - name: Setup Pages
