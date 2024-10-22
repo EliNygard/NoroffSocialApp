@@ -38,7 +38,7 @@ export async function viewPostsFollowing() {
 
       const aAuthor = document.createElement("a");
       aAuthor.textContent = `Author: ${post.author.name}`;
-      aAuthor.href = `../profiles/profile/?name=${post.author.name}`;
+      aAuthor.href = `../profiles/profile/?view=profile&name=${post.author.name}`;
 
       const btnUnFollow = document.createElement("button");
       btnUnFollow.textContent = "Unfollow";
