@@ -1,7 +1,7 @@
-// import { authGuard } from "../../utilities/authGuard";
+import { authGuard } from "../../utilities/authGuard";
 // import { viewPostsFollowing } from "../../ui/posts/viewPostsFollowing";
 
-// authGuard();
+authGuard();
 // viewPostsFollowing();
 
 console.log("home page");
