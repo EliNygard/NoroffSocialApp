@@ -13,41 +13,41 @@
 
 export default async function router(pathname = window.location.pathname) {
   switch (pathname) {
-    case "/":
-    case "/index.html":
+    case "/NoroffSocialApp/":
+    case "/NoroffSocialApp/index.html":
       await import("./views/home");
       break;
-    case "/explore/":
-    case "/explore/index.html":
+    case "/NoroffSocialApp/explore/":
+    case "/NoroffSocialApp/explore/index.html":
       await import("./views/explore.js");
       break;
-    case "/auth/":
-    case "/auth/index.html":
+    case "/NoroffSocialApp/auth/":
+    case "/NoroffSocialApp/auth/index.html":
       await import("./views/auth.js");
       break;
-      case "/auth/login/":
-      case "/auth/login/index.html":
+      case "/NoroffSocialApp/auth/login/":
+      case "/NoroffSocialApp/auth/login/index.html":
       await import("./views/login.js");
       break;
-    case "/auth/register/":
-    case "/auth/register/index.html":
+    case "/NoroffSocialApp/auth/register/":
+    case "/NoroffSocialApp/auth/register/index.html":
       await import("./views/register.js");
       break;
-    case "/post":
-    case "/post/":
-    case "/post/index.html":
+    case "/NoroffSocialApp/post":
+    case "/NoroffSocialApp/post/":
+    case "/NoroffSocialApp/post/index.html":
       await import("./views/post.js");
       break;
-    case "/post/edit/":
-    case "/post/edit/index.html":
+    case "/NoroffSocialApp/post/edit/":
+    case "/NoroffSocialApp/post/edit/index.html":
       await import("./views/postEdit.js");
       break;
-    case "/post/create/":
-    case "/post/create/index.html":
+    case "/NoroffSocialApp/post/create/":
+    case "/NoroffSocialApp/post/create/index.html":
       await import("./views/postCreate.js");
       break;
-    case "/profile/":
-    case "/profile/index.html":
+    case "/NoroffSocialApp/profile/":
+    case "/NoroffSocialApp/profile/index.html":
       await import("./views/profile.js");
       break;
     case "/profiles/":
