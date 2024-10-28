@@ -21,6 +21,8 @@ import { onDeleteComment } from "./deleteComment.js";
 export async function viewPostsFollowing() {
   try {
     const posts = await api.posts.readFollowing();
+    console.log(posts);
+    
     const loggedinProfile = api.user.name;
 
     const list = posts.map((post) => {
@@ -48,15 +50,19 @@ export async function viewPostsFollowing() {
 
       const img = document.createElement("img");
       img.classList.add("post-img");
-      img.src =
-        post.media && post.media.url
-          ? post.media.url
-          : "/images/noroff-logo-icon.png";
+      if(post.media) {
+        img.src = post.media.url;
+      }
+      
+      // img.src =
+      //   post.media && post.media.url
+      //     ? post.media.url
+      //     : "/images/noroff-logo-icon.png";
 
-      img.onerror = function () {
-        img.src = "/images/noroff-logo-icon.png";
-        throw new Error("Could not fetch img src. Setting a default img");
-      };
+      // img.onerror = function () {
+      //   img.src = "/images/noroff-logo-icon.png";
+      //   throw new Error("Could not fetch img src. Setting a default img");
+      // };
 
       const xComments = document.createElement("p");
       xComments.textContent = `Comments: ${post._count.comments}`;

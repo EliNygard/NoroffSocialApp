@@ -41,14 +41,15 @@ export async function viewPostsAll() {
 
       const img = document.createElement("img");
       img.classList.add("post-img")
-      img.src =
-        post.media && post.media.url
-          ? post.media.url
-          : "/images/noroff-logo-icon.png";
-      img.onerror = function () {
-        img.src = "/images/noroff-logo-icon.png"
-        throw new Error("Could not fetch img src. Setting a default img")
-      };
+      img.src = post.media.url
+      // img.src =
+      //   post.media && post.media.url
+      //     ? post.media.url
+      //     : "./images/noroff-logo-icon.png";
+      // img.onerror = function () {
+      //   img.src = "./images/noroff-logo-icon.png"
+      //   throw new Error("Could not fetch img src. Setting a default img")
+      // };
 
       const btnFollow = document.createElement("button");
       btnFollow.textContent = "Follow";
