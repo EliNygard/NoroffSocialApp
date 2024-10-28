@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   appType: "mpa",
-  base: "/NoroffSocialApp/",
+  base: "",
   build: {
     target: "esnext",
     outDir: "./dist",
