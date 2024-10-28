@@ -3,9 +3,10 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   appType: "mpa",
-  base: "",
+  base: "/NoroffSocialApp/",
   build: {
     target: "esnext",
+    outDir: "../dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "./index.html"),
