@@ -6,7 +6,7 @@ export default defineConfig({
   base: "/NoroffSocialApp/",
   build: {
     target: "esnext",
-    outDir: "../dist",
+    outDir: "./dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "./index.html"),
