@@ -45,7 +45,7 @@ export async function viewCurrentUser() {
 
         const title = document.createElement("a");
         title.textContent = post.title;
-        title.href = `/post/?id=${post.id}`;
+        title.href = `../post/?id=${post.id}`;
 
         const body = document.createElement("p");
         body.textContent = post.body;

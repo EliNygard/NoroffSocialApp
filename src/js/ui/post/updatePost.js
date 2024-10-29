@@ -24,7 +24,7 @@ export async function onUpdatePost(event) {
 
   try {
     const post = (await api.post.update(id, data)).data;
-    window.location.href = `/post/?id=${post.id}`;
+    window.location.href = `../../post/?id=${post.id}`;
   } catch (error) {
     console.error("Error updating post: ", error);
     alert(error);

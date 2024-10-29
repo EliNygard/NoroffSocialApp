@@ -24,6 +24,6 @@ export async function onDeletePost() {
     console.error("Error deleting post", error);
     alert(error);
   } finally {
-    window.location.href = "/profile/";
+    window.location.href = "../profile/";
   }
 }
