@@ -21,7 +21,6 @@ import { onDeleteComment } from "./deleteComment.js";
 export async function viewPostsFollowing() {
   try {
     const posts = await api.posts.readFollowing();
-    console.log(posts);
     
     const loggedinProfile = api.user.name;
 

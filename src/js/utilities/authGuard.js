@@ -5,14 +5,14 @@ export function authGuard() {
   if (!token) {
     const body = document.querySelector("body")
     console.log(body);
-    body.appendChild(diplayAuthGuard())
+    body.appendChild(displayAuthGuard())
     
     // alert("You must be logged in to view this page");
     // window.location.href = "../auth/login/";
   }
 }
 
-function diplayAuthGuard() {
+function displayAuthGuard() {
   const container = document.createElement("div")
   container.textContent = "Welcome to the Noroff Social Community. Connect with the community of the Noroff Vocational Scool of technology and digital media. Log in to your account or register one to start exploring the community."
   container.classList.add("fullscreen-container")

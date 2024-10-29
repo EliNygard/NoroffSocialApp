@@ -15,7 +15,7 @@ export default async function router(pathname = window.location.pathname) {
   switch (pathname) {
     case "/NoroffSocialApp/":
     case "/NoroffSocialApp/index.html":
-      await import("./views/home");
+      await import("./views/home.js");
       break;
     case "/NoroffSocialApp/explore/":
     case "/NoroffSocialApp/explore/index.html":
