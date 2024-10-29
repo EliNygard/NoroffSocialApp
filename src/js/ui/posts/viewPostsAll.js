@@ -45,15 +45,6 @@ export async function viewPostsAll() {
         img.src = post.media.url;
       }
 
-      // img.src =
-      //   post.media && post.media.url
-      //     ? post.media.url
-      //     : "./public/images/noroff-logo-icon.png";
-      // img.onerror = function () {
-      //   img.src = "./public/images/noroff-logo-icon.png"
-      //   throw new Error("Could not fetch img src. Setting a default img")
-      // };
-
       const btnFollow = document.createElement("button");
       btnFollow.textContent = "Follow";
       btnFollow.addEventListener("click", () => onFollowProfile(post.author));
@@ -64,7 +55,11 @@ export async function viewPostsAll() {
         onUnfollowProfile(post.author)
       );
 
-      li.append(img, h3, body, avatar, aAuthor, btnFollow, btnUnfollow);
+      if (img.src) {
+        li.append(img);
+      }
+
+      li.append(h3, body, avatar, aAuthor, btnFollow, btnUnfollow);
       return li;
     });
 

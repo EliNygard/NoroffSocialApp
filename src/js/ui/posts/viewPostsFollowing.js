@@ -54,16 +54,6 @@ export async function viewPostsFollowing() {
         img.src = post.media.url;
       }
       
-      // img.src =
-      //   post.media && post.media.url
-      //     ? post.media.url
-      //     : "/images/noroff-logo-icon.png";
-
-      // img.onerror = function () {
-      //   img.src = "/images/noroff-logo-icon.png";
-      //   throw new Error("Could not fetch img src. Setting a default img");
-      // };
-
       const xComments = document.createElement("p");
       xComments.textContent = `Comments: ${post._count.comments}`;
 
@@ -124,8 +114,11 @@ export async function viewPostsFollowing() {
         return li;
       });
 
+      if (img.src) {
+        li.append(img);
+      }
+
       li.append(
-        img,
         h3,
         body,
         avatar,
