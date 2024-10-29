@@ -198,7 +198,7 @@ export default class SocialAPI {
       try {
         this.user = null;
         this.token = null;
-        window.location.href = "./auth/login/";
+        window.location.href = "../auth/login/";
       } catch (error) {
         console.error(error);
         alert("Could not logout. Please try again.");
