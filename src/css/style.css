@@ -24,3 +24,18 @@ li {
   height: 50px;
   object-fit: cover;
 }
+
+/* Ensure the container covers the whole screen */
+.fullscreen-container {
+  position: fixed; /* Keeps it in place */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Centers content */
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(48, 76, 136); /* Optional: dark overlay */
+  color: #fff; /* Optional: text color */
+  z-index: 9999; /* Bring it to the front */
+}
