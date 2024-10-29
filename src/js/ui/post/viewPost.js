@@ -31,7 +31,7 @@ export async function viewPost() {
     p.textContent = post.body;
 
     const btnEdit = document.createElement("a");
-    btnEdit.href = `/post/edit/?id=${id}`;
+    btnEdit.href = `./edit/?id=${id}`;
     btnEdit.textContent = "Edit";
 
     const btnDelete = document.createElement("button");

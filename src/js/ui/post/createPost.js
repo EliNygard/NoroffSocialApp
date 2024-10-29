@@ -24,7 +24,7 @@ export async function onCreatePost(event) {
   try {
     // show loader
     const post = (await api.post.create(data)).data;
-    window.location.href = `/post/?id=${post.id}`;
+    window.location.href = `../../post/?id=${post.id}`;
   } catch (error) {
     console.error("Error creating post: ", error);
     alert(error);
