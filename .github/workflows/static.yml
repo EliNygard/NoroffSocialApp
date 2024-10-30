@@ -25,7 +25,7 @@ jobs:
     environment:
       name: github-pages-${{ github.ref_name }}
       url: ${{ github.ref_name == 'main' && 'https://elinygard.github.io/NoroffSocialApp/' || 
-               github.ref_name == 'css-frameworks' && 'https://elinygard.github.io/NoroffSocialApp-ca/' }}
+               github.ref_name == 'css-frameworks' && 'https://elinygard.github.io/NoroffSocialApp/' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
