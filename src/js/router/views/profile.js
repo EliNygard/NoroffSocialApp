@@ -9,6 +9,6 @@ const form = document.forms.updateProfile;
 
 form.addEventListener("submit", onUpdateProfile);
 
-onLogout()
 
 viewCurrentUser();
+onLogout()
