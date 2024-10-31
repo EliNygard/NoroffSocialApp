@@ -8,6 +8,10 @@ body {
   @apply font-sans
 }
 
+li { 
+  @apply list-none
+}
+
 .btn {
   @apply rounded py-1 px-3 text-center;
 }
