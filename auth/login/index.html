@@ -14,8 +14,10 @@
       class="max-w-xl mx-3 flex flex-col justify-center px-6 pt-8 pb-4 gap-5 bg-slate-50 rounded shadow-md shadow-red-200/50 border-blue-950 sm:px-11 md:px-20"
     >
       <img src="/images/noroff-logo.png" alt="Noroff logo" />
-      <h1 class="mt-4 text-lg md:text-2xl md:leading-10">
-        Log in to the Noroff Social Community
+      <h1 class=" text-center mt-4 text-lg md:text-2xl md:leading-10">
+        Log in to the <span class="block">
+          Noroff Social Community
+        </span>
       </h1>
 
       <form class="flex flex-col gap-2 max-w-2xl" name="login">
@@ -25,6 +27,7 @@
           id="email"
           type="email"
           name="email"
+          pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
           placeholder="example@noroff.no"
           required
         />
