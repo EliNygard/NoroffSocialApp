@@ -4,12 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply font-sans
+}
+
 .btn {
   @apply text-black border-solid border-black border rounded py-1 px-3 text-center;
 }
 
 .btn-auth {
  @apply hover:shadow-md shadow-red-600 transition duration-300 ease-in-out;
+}
+
+.form-input {
+ @apply border-solid border-black border rounded p-1;
 }
 
 .post-img {
