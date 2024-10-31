@@ -45,12 +45,12 @@ function displayAuthGuard() {
   const login = document.createElement("a")
   login.href = "/NoroffSocialApp/auth/login/"
   login.textContent = "Log in";
-  login.className = "btn btn-auth"
+  login.className = "btn btn-primary btn-primary-hover"
 
   const register = document.createElement("a");
   register.href = "/NoroffSocialApp/auth/register/";
   register.textContent = "Register account";
-  register.className = "btn btn-auth"
+  register.className = "btn btn-primary btn-primary-hover"
 
   nav.append(login, register)
   textContainer.append(h1, p1, p2)
