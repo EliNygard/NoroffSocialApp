@@ -9,7 +9,173 @@
   <body>
     <header></header>
     <main>
-      <section id="postsFollowing"></section>
+      <section id="postsFollowing">
+        <ul>
+          <li class="my-4 mb-3 max-w-lg">
+            <div class="flex flex-row justify-between mb-2 mx-2">
+              <div class="flex justify-start items-center gap-3">
+                <img
+                  class="rounded-full object-cover size-12"
+                  src="https://i.imgur.com/PdZRRWB.jpeg"
+                />
+                <a href="./profiles/profile/?view=profile&amp;name=whisperpiano"
+                  >whisperpiano</a
+                >
+              </div>
+              <button class="btn btn-primary btn-primary-hover text-sm">
+                Unfollow
+              </button>
+            </div>
+
+            <a class="flex flex-col gap-3 mb-4" href="">
+              <img
+                class="w-full object-contain"
+                src="https://picsum.photos/seed/picsum/200/300"
+              />
+              <h3 class="mx-2 font-semibold">Hello world!</h3>
+              <p class="mx-2">So how are you people?</p>
+            </a>
+
+            <p class="mx-2 text-xs flex justify-end">Oct 31 2024</p>
+
+            <!-- Comments section -->
+            <div class="mx-2 mb-4">
+              <button id="toggleComments" class="flex flex-row gap-1 mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"
+                  />
+                </svg>
+                <p>1</p>
+              </button>
+              <div class="hidden" id="commentsSection">
+                <ol class="m-2">
+                  <li class="py-1">
+                    <div class="flex flex-row justify-between">
+                      <div class="text-sm">
+                        <a
+                          class="font-semibold"
+                          href="/profiles/profile/?name=Nygard"
+                          >Nygard</a
+                        >
+                        <p class="pt-2">Great, thanks!</p>
+                      </div>
+                      <button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="size-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-stone-700 mt-3">
+                      Oct 31 2024, 19:02
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Comment form -->
+            <form class="flex flex-col gap-2" name="commentOnPost">
+              <div class="flex flex-row items-center gap-2">
+                <img
+                  class="rounded-full object-cover size-10"
+                  src="https://i.imgur.com/PdZRRWB.jpeg"
+                  alt=""
+                />
+                <label class="text-sm" for="body">Add a comment</label>
+              </div>
+              <textarea class="form-input" name="body" id="body"></textarea>
+              <button
+                class="btn btn-primary btn-primary-hover text-sm"
+                type="submit"
+              >
+                Comment
+              </button>
+            </form>
+          </li>
+          <li class="my-4 mb-3 max-w-lg">
+            <div class="flex flex-row justify-between mb-2 mx-2">
+              <div class="flex justify-start items-center gap-3">
+                <img
+                  class="rounded-full object-cover size-12"
+                  src="https://i.imgur.com/PdZRRWB.jpeg"
+                />
+                <a href="./profiles/profile/?view=profile&amp;name=whisperpiano"
+                  >whisperpiano</a
+                >
+              </div>
+              <button class="btn btn-primary btn-primary-hover text-sm">
+                Unfollow
+              </button>
+            </div>
+            <a class="flex flex-col gap-3 mb-2" href="">
+              <img
+                class="w-full object-contain"
+                src="https://picsum.photos/seed/picsum/300/200"
+              />
+              <h3 class="mx-2">Hello world!</h3>
+              <p class="mx-2">So how are you people?</p>
+            </a>
+            <form class="flex flex-col gap-2" name="commentOnPost">
+              <div class="flex flex-row items-center gap-2">
+                <img
+                  class="rounded-full object-cover size-10"
+                  src="https://i.imgur.com/PdZRRWB.jpeg"
+                  alt=""
+                />
+                <label class="text-sm" for="body">Add a comment</label>
+              </div>
+              <textarea class="form-input" name="body" id="body"></textarea>
+              <button
+                class="btn btn-primary btn-primary-hover text-sm"
+                type="submit"
+              >
+                Comment
+              </button>
+            </form>
+            <div class="mx-2">
+              <p>Comments: 1</p>
+              <button
+                class="btn btn-secondary btn-secondary-hover text-sm"
+                id="toggleComments"
+              >
+                View Comments
+              </button>
+              <div id="commentsSection" style="display: none">
+                <ol>
+                  <li>
+                    <a href="/profiles/profile/?name=Nygard"
+                      >Comment by: Nygard</a
+                    >
+                    <p>Great, thanks!</p>
+                    <button>Delete comment</button>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
   </body>
 </html>
