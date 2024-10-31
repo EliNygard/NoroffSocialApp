@@ -2,9 +2,11 @@ import api from "../../api/instance.js";
 import { authGuard } from "../../utilities/authGuard";
 import { viewPostsFollowing } from "../../ui/posts/viewPostsFollowing";
 import { displayHeader } from "../../ui/global/header.js";
-import { onLogout } from "../../ui/auth/logout.js";
+import { togglePostComments } from "../../utilities/toggle.js";
 
 authGuard();
+
+togglePostComments()
 
 async function initializePage() {
   const token = api.token;
@@ -14,7 +16,7 @@ async function initializePage() {
     const header = await displayHeader();
 
     headerContainer.appendChild(header);
-    viewPostsFollowing();
+    // viewPostsFollowing();
   }
 
 }
