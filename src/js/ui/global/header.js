@@ -23,15 +23,15 @@ export async function displayHeader() {
     divFirst.className = "flex justify-between items-center"
 
     const aLogo = document.createElement("a");
-    aLogo.href = "./";
+    aLogo.href = "/NoroffSocialApp/";
 
     const imgLogo = document.createElement("img");
     imgLogo.className= "h-12 object-contain"
-    imgLogo.src = "./images/noroff-logo.png"
+    imgLogo.src = "/NoroffSocialApp/images/noroff-logo.png"
     imgLogo.alt = "Noroff logo";
     
     const aProfile = document.createElement("a");
-    aProfile.href = `./profile/?view=profile&name=${profile.name}`;
+    aProfile.href = `/NoroffSocialApp/profile/?view=profile&name=${profile.name}`;
     
     const imgProfile = document.createElement("img");
     imgProfile.className = "justify-self-end h-12 w-12 rounded-full object-cover"
@@ -41,15 +41,15 @@ export async function displayHeader() {
     divSec.className = "flex justify-between mt-4 mb-8"
 
     const aHome = document.createElement("a")
-    aHome.href = "./"
+    aHome.href = "/NoroffSocialApp/"
     aHome.textContent = "Home"
     
     const aCommunity = document.createElement("a")
-    aCommunity.href = "./explore/"
+    aCommunity.href = "/NoroffSocialApp/explore/"
     aCommunity.textContent = "Community"
     
     const aNewPost = document.createElement("a")
-    aNewPost.href = "./post/create/"
+    aNewPost.href = "/NoroffSocialApp/post/create/"
     aNewPost.textContent = "New Post"
 
     aLogo.appendChild(imgLogo);

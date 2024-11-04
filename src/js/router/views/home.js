@@ -15,7 +15,7 @@ async function initializePage() {
       headerContainer.appendChild(header);
 
       const postsFromFollowing = await api.posts.readFollowing();
-      await viewPosts(postsFromFollowing, "home");
+      await viewPosts(postsFromFollowing);
       togglePostComments();
     } catch {}
   }

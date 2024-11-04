@@ -23,7 +23,7 @@ const loggedinProfile = api.user.name;
 const profile = await api.profiles.readSingleProfile(loggedinProfile);
 const followingProfiles = profile.following;
 
-export async function viewPosts(posts, page) {
+export async function viewPosts(posts) {
   try {
 
     // use this to add delete post if user is in local storage
@@ -39,11 +39,12 @@ export async function viewPosts(posts, page) {
 
       const leftContainer = document.createElement("a");
       leftContainer.className = "flex justify-start items-center gap-3";
-      if (page === "home") {
-        leftContainer.href = `./profiles/profile/?view=profile&name=${post.author.name}`;
-      } else if (page === "explore") {
-        leftContainer.href = `../profiles/profile/?view=profile&name=${post.author.name}`;
-      }
+      leftContainer.href = `/NoroffSocialApp/profiles/profile/?view=profile&name=${post.author.name}`
+      // if (page === "home") {
+      //   leftContainer.href = `./profiles/profile/?view=profile&name=${post.author.name}`;
+      // } else if (page === "explore") {
+      //   leftContainer.href = `../profiles/profile/?view=profile&name=${post.author.name}`;
+      // }
 
       const headerAvatar = document.createElement("img");
       headerAvatar.className = "rounded-full object-cover size-12";
@@ -167,11 +168,7 @@ export async function viewPosts(posts, page) {
         const aAuthor = document.createElement("a");
         aAuthor.className = "font-semibold";
         aAuthor.textContent = `Comment by: ${comment.author.name}`;
-        if(page === "home") {
-          aAuthor.href = `./profiles/profile/?name=${comment.author.name}`
-        } else if (page === "explore") {
-          aAuthor.href = `../profiles/profile/?name=${comment.author.name}`;
-        }
+        aAuthor.href = `/NoroffSocialApp/profiles/profile/?name=${comment.author.name}`
 
         const body = document.createElement("p");
         body.className = "pt-2";
