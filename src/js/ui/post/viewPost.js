@@ -1,5 +1,6 @@
 import api from "../../api/instance.js";
 import { onDeletePost } from "./deletePost.js";
+import { CustomButton } from "../../components/customButton.js"
 
 /**
  * Fetches and displays a specific post on the page based on the URL's query parameter.
@@ -30,9 +31,9 @@ export async function viewPost() {
     const p = document.createElement("p");
     p.textContent = post.body;
 
-    const btnEdit = document.createElement("a");
-    btnEdit.href = `./edit/?id=${id}`;
-    btnEdit.textContent = "Edit";
+    const btnEdit = document.createElement("custom-button");
+    btnEdit.setAttribute("text", "Edit");
+    btnEdit.setAttribute("href", `./edit/?id=${id}`);
 
     const btnDelete = document.createElement("button");
     btnDelete.textContent = "Delete";
