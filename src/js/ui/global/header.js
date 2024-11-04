@@ -3,7 +3,6 @@ import { getUrlParameter } from "../../utilities/getUrlParam.js";
 
 export async function displayHeader() {
   const profileName = api.user.name || getUrlParameter("name");
-  console.log(profileName);
 
   if (!profileName) {
     console.warn("No profile name found. Exiting function.");
@@ -14,49 +13,50 @@ export async function displayHeader() {
 
   try {
     const profile = await api.profiles.readSingleProfile(profileName);
-    console.log(profile);
     if (!profile || !profile.avatar)
       throw new Error("No profile or avatar image found");
 
     const nav = document.createElement("nav");
-    nav.style =
-      "display: flex; flex-direction: row; justify-content: space-between;";
+    nav.className = "flex flex-col mt-4 max-w-xl m-auto px-2"
+
+    const divFirst = document.createElement("div")
+    divFirst.className = "flex justify-between items-center"
 
     const aLogo = document.createElement("a");
-    aLogo.href = "/NoroffSocialApp/";
+    aLogo.href = "./";
 
     const imgLogo = document.createElement("img");
-    imgLogo.src = "/NoroffSocialApp/images/noroff-logo.png"
+    imgLogo.className= "h-12 object-contain"
+    imgLogo.src = "./images/noroff-logo.png"
     imgLogo.alt = "Noroff logo";
-    imgLogo.style = "width: 100px; object-fit: contain;";
-
     
     const aProfile = document.createElement("a");
-    aProfile.href = `/NoroffSocialApp/profile/?view=profile&name=${profile.name}`;
+    aProfile.href = `./profile/?view=profile&name=${profile.name}`;
     
     const imgProfile = document.createElement("img");
+    imgProfile.className = "justify-self-end h-12 w-12 rounded-full object-cover"
     imgProfile.src = profile.avatar.url;
-    imgProfile.style =
-    "border-radius: 50%; height: 50px; width: 50px; object-fit: cover;";
     
-    const div = document.createElement("div")
+    const divSec = document.createElement("div")
+    divSec.className = "flex justify-between mt-4 mb-8"
 
     const aHome = document.createElement("a")
-    aHome.href = "/NoroffSocialApp/"
+    aHome.href = "./"
     aHome.textContent = "Home"
     
     const aCommunity = document.createElement("a")
-    aCommunity.href = "/NoroffSocialApp/explore/"
+    aCommunity.href = "./explore/"
     aCommunity.textContent = "Community"
     
     const aNewPost = document.createElement("a")
-    aNewPost.href = "/NoroffSocialApp/post/create/"
+    aNewPost.href = "./post/create/"
     aNewPost.textContent = "New Post"
 
     aLogo.appendChild(imgLogo);
     aProfile.appendChild(imgProfile)
-    div.append(aHome, aCommunity, aNewPost)
-    nav.append(aLogo, aProfile, div);
+    divFirst.append(aLogo, aProfile)
+    divSec.append(aHome, aCommunity, aNewPost)
+    nav.append(divFirst, divSec);
 
     return nav;
   } catch (error) {
