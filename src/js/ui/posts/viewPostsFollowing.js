@@ -1,4 +1,5 @@
 import api from "../../api/instance.js";
+import { onFollowProfile } from "../profiles/followProfile.js";
 import { onUnfollowProfile } from "../profiles/unfollowProfile.js";
 import { onComment } from "./addComment.js";
 import { onDeleteComment } from "./deleteComment.js";
@@ -18,13 +19,18 @@ import { onDeleteComment } from "./deleteComment.js";
  * @throws {Error} Will throw an error if there is an issue fetching the posts from the API.
  */
 
-export async function viewPostsFollowing() {
+const loggedinProfile = api.user.name;
+const following = await api.profiles.readSingleProfile(loggedinProfile)
+const followingProfiles = following.following
+
+
+export async function viewPosts(posts) {
   try {
-    const posts = await api.posts.readFollowing();
+    // const posts = await api.posts.readFollowing();
 
     console.log(posts);
 
-    const loggedinProfile = api.user.name;
+    // use this to add delete post if user is in local storage
 
     const list = posts.map((post) => {
       const li = document.createElement("li");
@@ -47,6 +53,7 @@ export async function viewPostsFollowing() {
       const usernameHeader = document.createElement("p");
       usernameHeader.textContent = post.author.name;
 
+      
       const btnToggleFollow = document.createElement("button");
       btnToggleFollow.classList.add(
         "btn",
@@ -55,13 +62,31 @@ export async function viewPostsFollowing() {
         "text-sm",
         "max-h-10"
       );
-      btnToggleFollow.textContent = "Unfollow";
+      btnToggleFollow.textContent = "Follow";
       btnToggleFollow.addEventListener("click", () =>
-        onUnfollowProfile(post.author)
-      );
+        onFollowProfile(post.author)
+    );
 
-      leftContainer.append(headerAvatar, usernameHeader);
-      profileHeader.append(leftContainer, btnToggleFollow);
+      const btnToggleUnFollow = document.createElement("button");
+      btnToggleUnFollow.classList.add(
+        "btn",
+        "btn-primary",
+        "btn-primary-hover",
+        "text-sm",
+        "max-h-10"
+      );
+      btnToggleUnFollow.textContent = "Unfollow";
+      btnToggleUnFollow.addEventListener("click", () =>
+        onUnfollowProfile(post.author)
+    );
+    
+    leftContainer.append(headerAvatar, usernameHeader);
+    profileHeader.appendChild(leftContainer);
+    if (Array.isArray(followingProfiles)) {
+      profileHeader.appendChild(btnToggleUnFollow)
+    } else {
+      profileHeader.appendChild(btnToggleFollow)
+    }
 
       // The post
       const postContainer = document.createElement("article");
@@ -95,17 +120,24 @@ export async function viewPostsFollowing() {
       postContainer.append(postDate, h3, body);
 
       // Comments section
-      const commentsContainer = document.createElement("div");
-      commentsContainer.className = "mx-2 mb-4";
+      const commentsSection = document.createElement("div");
+      commentsSection.className = "mx-2 mb-4 comments";
 
       const btnToggleComments = document.createElement("button");
       btnToggleComments.className = "flex flex-row items-center gap-1 mb-2";
+      btnToggleComments.setAttribute("data-toggle-comments", "true");
 
       const icon = document.createElement("i");
-      icon.className = "fa-regular fa-comment size-6";
+      icon.className = "fa-regular fa-comment size-6 flex items-center";
 
       const xComments = document.createElement("p");
+      xComments.className = "text-xs";
       xComments.textContent = `Comments: ${post._count.comments}`;
+      if (post._count.comments > 0) {
+        xComments.setAttribute("title", "View all comments")
+      } else {
+        xComments.setAttribute("title", "This post has 0 comments")
+      }
 
       btnToggleComments.append(icon, xComments);
 
@@ -121,8 +153,8 @@ export async function viewPostsFollowing() {
         const postId = comment.postId;
         const commentId = comment.id;
 
-        const li = document.createElement("li");
-        li.className = "py-1";
+        const commentsLi = document.createElement("li");
+        commentsLi.className = "py-1";
 
         const div = document.createElement("div");
         div.className = "flex flex-row justify-between";
@@ -131,33 +163,54 @@ export async function viewPostsFollowing() {
         commentContainer.className = "text-sm";
 
         const aAuthor = document.createElement("a");
+        aAuthor.className = "font-semibold";
         aAuthor.textContent = `Comment by: ${comment.author.name}`;
         aAuthor.href = `/profiles/profile/?name=${comment.author.name}`;
 
         const body = document.createElement("p");
+        body.className = "pt-2";
         body.textContent = comment.body;
 
-        // start here, add button, find icon on font awsome
-        const btnContainer = document.createElement("div");
+        commentContainer.append(aAuthor, body);
 
-        const btnDelete = document.createElement("button");
-        btnDelete.textContent = "Delete comment";
-        btnDelete.addEventListener("click", () =>
+        const btnDeleteComment = document.createElement("button");
+        btnDeleteComment.setAttribute("title", "Delete comment")
+        btnDeleteComment.addEventListener("click", () =>
           onDeleteComment(postId, commentId)
         );
 
-        const author = comment.author.name;
+        const icon = document.createElement("i");
+        icon.className = "fa-regular fa-trash-can size-6";
 
+        btnDeleteComment.appendChild(icon);
+
+        div.append(commentContainer);
+        const author = comment.author.name;
         if (author === loggedinProfile) {
-          btnContainer.appendChild(btnDelete);
+          div.appendChild(btnDeleteComment);
         }
 
-        li.append(aAuthor, body, btnContainer);
-        return li;
+        const date = document.createElement("p");
+        date.className = "text-xs text-stone-700 mt-3";
+        date.textContent = comment.created;
+
+        commentsLi.append(div, date);
+
+        return commentsLi;
       });
 
+      // Start here adding the comment form
+      // Add Comment form
+
+      const form = document.createElement("form");
+      form.className = "flex flex-col gap-2"
+      form.setAttribute("name", "commentOnPost");
+
+      const labelWrapper = document.createElement("div")
+      labelWrapper.className = "flex flex-row items-center gap-2"
+
       const avatar = document.createElement("img");
-      avatar.classList.add("profile-avatar");
+      avatar.className = "rounded-full object-cover size-10"
       avatar.src = post.author.avatar.url;
 
       const aAuthor = document.createElement("a");
@@ -166,8 +219,6 @@ export async function viewPostsFollowing() {
 
       const sectionComment = document.createElement("section");
 
-      const form = document.createElement("form");
-      form.setAttribute("name", "commentOnPost");
 
       const label = document.createElement("label");
       label.setAttribute("for", "body");
@@ -194,14 +245,10 @@ export async function viewPostsFollowing() {
       // }
 
       orderedList.append(...commentsList);
+      commentsWrapper.appendChild(orderedList);
+      commentsSection.append(btnToggleComments, commentsWrapper);
 
-      li.append(
-        profileHeader,
-        postContainer,
-        orderedList
-        // sectionComment,
-        // ...commentsList
-      );
+      li.append(profileHeader, postContainer, commentsSection,);
       return li;
     });
 

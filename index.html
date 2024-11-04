@@ -4,43 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <script src="https://kit.fontawesome.com/2c5c2a6dff.js" crossorigin="anonymous"></script>
     <script type="module" src="./src/app.js"></script>
   </head>
   <body>
     <header></header>
     <main>
-      <section id="postsFollowing">
-        <ul>
-          <li class="my-4 mb-3 max-w-lg">
-            <div class="flex flex-row justify-between mb-2 mx-2">
-              <div class="flex justify-start items-center gap-3">
-                <img
+      <section class="flex flex-col justify-center m-auto max-w-xl" id="postsFollowing">
+        <!-- <ul class="flex flex-col justify-center m-auto max-w-xl"> -->
+          <li class="my-4 mb-5">
+            <!-- Header profile, unfollow -->
+            <!-- <div class="flex flex-row justify-between items-center mb-2 mx-2"> -->
+              <!-- <div class="flex justify-start items-center gap-3"> -->
+                <!-- <img
                   class="rounded-full object-cover size-12"
                   src="https://i.imgur.com/PdZRRWB.jpeg"
-                />
-                <a href="./profiles/profile/?view=profile&amp;name=whisperpiano"
+                /> -->
+                <!-- <a href="./profiles/profile/?view=profile&amp;name=whisperpiano"
                   >whisperpiano</a
-                >
-              </div>
-              <button class="btn btn-primary btn-primary-hover text-sm">
+                > -->
+              <!-- </div> -->
+              <!-- <button
+                class="btn btn-primary btn-primary-hover text-sm max-h-10"
+              >
                 Unfollow
-              </button>
-            </div>
+              </button> -->
+            <!-- </div> -->
 
-            <a class="flex flex-col gap-3 mb-4" href="">
-              <img
+            <!-- The post -->
+            <!-- <a class="flex flex-col gap-3 mb-4" href=""> -->
+              <!-- <img
                 class="w-full object-contain"
                 src="https://picsum.photos/seed/picsum/200/300"
-              />
-              <h3 class="mx-2 font-semibold">Hello world!</h3>
-              <p class="mx-2">So how are you people?</p>
-            </a>
-
-            <p class="mx-2 text-xs flex justify-end">Oct 31 2024</p>
+              /> -->
+              <!-- <p class="mx-2 text-xs flex justify-end text-stone-700">
+                Oct 31 2024
+              </p> -->
+              <!-- <h3 class="mx-2 font-semibold">Hello world!</h3> -->
+              <!-- <p class="mx-2">So how are you people?</p> -->
+            <!-- </a> -->
 
             <!-- Comments section -->
-            <div class="mx-2 mb-4">
-              <button id="toggleComments" class="flex flex-row gap-1 mb-2">
+            <!-- <div class="mx-2 mb-4">
+              <button
+                id="toggleComments"
+                class="flex flex-row items-center gap-1 mb-2"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -55,7 +64,7 @@
                     d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"
                   />
                 </svg>
-                <p>1</p>
+                <p class="text-xs">1 View comments</p>
               </button>
               <div class="hidden" id="commentsSection">
                 <ol class="m-2">
@@ -92,7 +101,7 @@
                   </li>
                 </ol>
               </div>
-            </div>
+            </div> -->
 
             <!-- Comment form -->
             <form class="flex flex-col gap-2" name="commentOnPost">
@@ -106,14 +115,14 @@
               </div>
               <textarea class="form-input" name="body" id="body"></textarea>
               <button
-                class="btn btn-primary btn-primary-hover text-sm"
+                class="btn btn-primary btn-primary-hover text-sm max-w-44"
                 type="submit"
               >
                 Comment
               </button>
             </form>
           </li>
-          <li class="my-4 mb-3 max-w-lg">
+          <!-- <li class="my-4 mb-3 max-w-lg">
             <div class="flex flex-row justify-between mb-2 mx-2">
               <div class="flex justify-start items-center gap-3">
                 <img
@@ -173,8 +182,8 @@
                 </ol>
               </div>
             </div>
-          </li>
-        </ul>
+          </li> -->
+        <!-- </ul> -->
       </section>
     </main>
   </body>
