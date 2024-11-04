@@ -1,4 +1,5 @@
 import api from "../../api/instance.js";
+import { formatDate } from "../../utilities/formatting.js";
 import { onFollowProfile } from "../profiles/followProfile.js";
 import { onUnfollowProfile } from "../profiles/unfollowProfile.js";
 import { onComment } from "./addComment.js";
@@ -40,11 +41,6 @@ export async function viewPosts(posts) {
       const leftContainer = document.createElement("a");
       leftContainer.className = "flex justify-start items-center gap-3";
       leftContainer.href = `/NoroffSocialApp/profiles/profile/?view=profile&name=${post.author.name}`
-      // if (page === "home") {
-      //   leftContainer.href = `./profiles/profile/?view=profile&name=${post.author.name}`;
-      // } else if (page === "explore") {
-      //   leftContainer.href = `../profiles/profile/?view=profile&name=${post.author.name}`;
-      // }
 
       const headerAvatar = document.createElement("img");
       headerAvatar.className = "rounded-full object-cover size-12";
@@ -104,9 +100,9 @@ export async function viewPosts(posts) {
       const postDate = document.createElement("p");
       postDate.className = "mx-2 text-xs flex justify-end text-stone-700";
       if (post.updated === post.created) {
-        postDate.textContent = post.created;
+        postDate.textContent = formatDate(post.created);
       } else {
-        postDate.textContent = post.updated;
+        postDate.textContent = formatDate(post.updated);
       }
 
       const h3 = document.createElement("h3");
@@ -131,10 +127,10 @@ export async function viewPosts(posts) {
       btnToggleComments.setAttribute("data-toggle-comments", "true");
 
       const icon = document.createElement("i");
-      icon.className = "fa-regular fa-comment size-6 flex items-center";
+      icon.className = "fa-regular fa-comment size-6 flex items-center md:size-8";
 
       const xComments = document.createElement("p");
-      xComments.className = "text-xs";
+      xComments.className = "text-xs md:text-sm";
       xComments.textContent = `Comments: ${post._count.comments}`;
       if (post._count.comments > 0) {
         xComments.setAttribute("title", "View all comments");
@@ -149,7 +145,7 @@ export async function viewPosts(posts) {
       commentsWrapper.setAttribute("id", "commentsSection");
 
       const orderedList = document.createElement("ol");
-      orderedList.className = "m-2";
+      orderedList.className = "mx-3";
 
       const commentsArray = post.comments;
       const commentsList = commentsArray.map((comment) => {
@@ -167,7 +163,7 @@ export async function viewPosts(posts) {
 
         const aAuthor = document.createElement("a");
         aAuthor.className = "font-semibold";
-        aAuthor.textContent = `Comment by: ${comment.author.name}`;
+        aAuthor.textContent = `${comment.author.name}`;
         aAuthor.href = `/NoroffSocialApp/profiles/profile/?name=${comment.author.name}`
 
         const body = document.createElement("p");
@@ -195,7 +191,7 @@ export async function viewPosts(posts) {
 
         const date = document.createElement("p");
         date.className = "text-xs text-stone-700 mt-3";
-        date.textContent = comment.created;
+        date.textContent = formatDate(comment.created);
 
         commentsLi.append(div, date);
 
@@ -205,7 +201,7 @@ export async function viewPosts(posts) {
       // Add comment form
 
       const form = document.createElement("form");
-      form.className = "flex flex-col gap-2";
+      form.className = "flex flex-col gap-2 mx-2";
       form.setAttribute("name", "commentOnPost");
 
       const labelWrapper = document.createElement("div");
