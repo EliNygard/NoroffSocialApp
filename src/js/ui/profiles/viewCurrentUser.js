@@ -20,23 +20,34 @@ export async function viewCurrentUser() {
     const profile = await api.profiles.readSingleProfile(userName);
 
     const profileCard = document.createElement("section");
+    profileCard.className = "sm:text-lg"
 
     const banner = document.createElement("img");
-    banner.classList.add("profile-banner");
+    banner.className = "w-full aspect-[3/1] object-cover"
     banner.src = profile.banner.url;
 
+    const profileContainer = document.createElement("div")
+    profileContainer.className = "my-4 mx-2 flex items-center gap-4"
+
     const avatar = document.createElement("img");
-    avatar.classList.add("profile-avatar");
+    avatar.className = "rounded-full size-12 object-cover"
     avatar.src = profile.avatar.url;
 
     const name = document.createElement("h2");
     name.textContent = profile.name;
 
+    profileContainer.append(avatar, name)
+
     const bio = document.createElement("p");
+    bio.className = 'mb-6 mx-2'
     bio.textContent = profile.bio;
 
+    const border = document.createElement("div")
+    border.className = "border border-gray-400 mb-6 mx-2"
+
     const countPosts = document.createElement("p");
-    countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts.`;
+    countPosts.className = "mb-6 mx-2"
+    countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts. Add a post to join the community.`;
     const posts = profile.posts;
 
     if (posts) {
@@ -58,7 +69,7 @@ export async function viewCurrentUser() {
       // rather than alert, display message on page
       alert("You have no posts yet. Why not create your first?");
     }
-    profileCard.append(banner, avatar, name, bio, countPosts);
+    profileCard.append(banner, profileContainer, bio, border, countPosts);
     document.getElementById("profileCard").appendChild(profileCard);
   } catch (error) {
     console.error("Error fetching profile: ", error);
