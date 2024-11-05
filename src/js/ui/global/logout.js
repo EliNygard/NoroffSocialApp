@@ -15,8 +15,6 @@ export function setLogoutListener() {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      console.log("delete has been clicked");
-
       api.auth.logout();
     });
   });
