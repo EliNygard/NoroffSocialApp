@@ -29,6 +29,7 @@ export async function displayHeader() {
     imgLogo.className= "h-12 object-contain"
     imgLogo.src = "/NoroffSocialApp/images/noroff-logo.png"
     imgLogo.alt = "Noroff logo";
+    imgLogo.setAttribute("title", "Home")
     
     const aProfile = document.createElement("a");
     aProfile.href = `/NoroffSocialApp/profile/?view=profile&name=${profile.name}`;
@@ -36,9 +37,10 @@ export async function displayHeader() {
     const imgProfile = document.createElement("img");
     imgProfile.className = "justify-self-end h-12 w-12 rounded-full object-cover"
     imgProfile.src = profile.avatar.url;
+    imgProfile.setAttribute("title", "My profile")
     
     const divSec = document.createElement("div")
-    divSec.className = "flex justify-between mt-4 mb-8"
+    divSec.className = "flex justify-between mt-4 mb-8 sm:text-lg"
 
     const aHome = document.createElement("a")
     aHome.href = "/NoroffSocialApp/"
