@@ -20,11 +20,11 @@ import { onDeleteComment } from "./deleteComment.js";
  * @throws {Error} Will throw an error if there is an issue fetching the posts from the API.
  */
 
-const loggedinProfile = api.user.name;
-const profile = await api.profiles.readSingleProfile(loggedinProfile);
-const followingProfiles = profile.following;
 
 export async function viewPosts(posts) {
+  const loggedinProfile = api.user.name;
+  const profile = await api.profiles.readSingleProfile(loggedinProfile);
+  const followingProfiles = profile.following;
   try {
 
     // use this to add delete post if user is in local storage
