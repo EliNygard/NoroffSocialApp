@@ -1,4 +1,5 @@
 import api from "../../api/instance.js";
+import { formatDate } from "../../utilities/formatting.js";
 
 /**
  * Fetches and displays the current logged-in user's profile and posts.
@@ -47,21 +48,60 @@ export async function viewCurrentUser() {
 
     const countPosts = document.createElement("p");
     countPosts.className = "mb-6 mx-2"
-    countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts. Add a post to join the community.`;
+    countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts.`;
     const posts = profile.posts;
 
     if (posts) {
       const list = posts.map((post) => {
+        console.log(post);
+        
         const li = document.createElement("li");
+        li.className = "mx-2"
 
-        const title = document.createElement("a");
-        title.textContent = post.title;
-        title.href = `../post/?id=${post.id}`;
+        // const title = document.createElement("a");
+        // title.textContent = post.title;
+        // title.href = `../post/?id=${post.id}`;
 
-        const body = document.createElement("p");
-        body.textContent = post.body;
+        // const body = document.createElement("p");
+        // body.textContent = post.body;
 
-        li.append(title, body);
+
+        // The post
+      const postContainer = document.createElement("a");
+      postContainer.className = "flex flex-col gap-3 mb-4";
+      postContainer.href = `/NoroffSocialApp/post/?id=${post.id}`
+
+      const img = document.createElement("img");
+      img.className = "w-full object-contain";
+      if (post.media) {
+        img.src = post.media.url;
+      }
+
+      const postDate = document.createElement("p");
+      postDate.className = "mx-2 text-xs flex justify-end text-stone-700";
+      if (post.updated === post.created) {
+        postDate.textContent = formatDate(post.created);
+      } else {
+        postDate.textContent = formatDate(post.updated);
+      }
+
+      const h3 = document.createElement("h3");
+      h3.className = "mx-2 font-semibold";
+      h3.textContent = post.title;
+
+      const body = document.createElement("p");
+      body.className = "mx-2";
+      body.textContent = post.body;
+
+      if (img.src) {
+        postContainer.appendChild(img);
+      }
+      postContainer.append(postDate, h3, body);
+
+
+      
+      li.appendChild(postContainer)
+        // li.append(title, body);
         return li;
       });
       document.getElementById("postsList").append(...list);
