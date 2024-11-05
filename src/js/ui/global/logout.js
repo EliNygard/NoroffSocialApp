@@ -11,11 +11,12 @@ import api from "../../api/instance.js";
  */
 
 export function setLogoutListener() {
-  const button = document.querySelector("[data-auth=logout]");
-  console.log(button);
-  
+  const buttons = document.querySelectorAll("[data-auth=logout]");
+
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      console.log("delete has been clicked");
+
       api.auth.logout();
     });
   });
