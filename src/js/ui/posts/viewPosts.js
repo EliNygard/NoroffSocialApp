@@ -123,11 +123,11 @@ export async function viewPosts(posts) {
       commentsSection.className = "mx-2 mb-4 comments";
 
       const btnToggleComments = document.createElement("button");
-      btnToggleComments.className = "flex flex-row items-center gap-1 mb-2";
+      btnToggleComments.className = "flex flex-row items-center gap-1 md:gap-2 mb-2";
       btnToggleComments.setAttribute("data-toggle-comments", "true");
 
       const icon = document.createElement("i");
-      icon.className = "fa-regular fa-comment size-6 flex items-center md:size-8";
+      icon.className = "fa-regular fa-comment";
 
       const xComments = document.createElement("p");
       xComments.className = "text-xs md:text-sm";
