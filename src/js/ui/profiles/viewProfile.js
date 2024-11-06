@@ -57,6 +57,7 @@ export async function viewProfile() {
         li.append(title, body);
         return li;
       });
+      
       document.getElementById("postsList").append(...list);
     } else {
       // rather than alert, display message on page
