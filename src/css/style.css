@@ -8,12 +8,16 @@ body {
   @apply font-sans
 }
 
+a {
+  @apply no-underline
+}
+
 li { 
   @apply list-none
 }
 
 .btn {
-  @apply rounded py-1 px-3 text-center;
+  @apply rounded py-1 px-3 text-center text-sm max-h-10;
 }
 
 .btn-primary {
@@ -29,7 +33,7 @@ li {
 }
 
 .form-input {
- @apply border-solid border-black border rounded p-1;
+ @apply text-stone-700 border rounded p-1;
 }
 
 
