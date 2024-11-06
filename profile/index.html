@@ -8,32 +8,28 @@
     <script type="module" src="../src/app.js"></script>
   </head>
   <body>
-    <h1>My profile page</h1>
-
-    <a href="../">Home</a>
-    <button data-auth="logout">Logout</button>
-
-    <form name="updateProfile" enctype="multipart/form-data">
-      <fieldset>
-        <legend>Update your profile</legend>
-        <label for="bio">Bio</label>
-        <input type="text" name="bio" id="bio" />
+    <header></header>
+    <main class="max-w-xl m-auto">
+        <div class="flex flex-row justify-between mx-2 my-5">
+          <button class="btn btn-primary btn-primary-hover" id="updateProfileBtn">Update profile</button>
+          <button class="btn btn-primary btn-primary-hover" data-auth="logout">Logout</button>
+        </div>
         
-        <label for="avatar">Avatar</label>
-        <input type="text" id="avatar" name="avatar"/>
-        
-        <label for="banner">Banner</label>
-        <input type="text" id="banner" name="banner"/>
-        
-        <button>Update Profile</button>
-      </fieldset>
-    </form>
-
-    <a href="../post/create/">Create a new post</a>
-
-    <section id="profileCard"></section>
-    <section id="postsList">
-      <h2>My posts</h2>
-    </section>
+        <div id="profileCard"></div>
+        <form class="mx-3 mt-9 mb-9 p-4 bg-neutral-100 shadow-lg flex flex-col gap-3 sm:text-lg" id="updateProfile" name="updateProfile" enctype="multipart/form-data">
+            <h2 class="mb-3">Update your profile</h2>
+            <label for="bio">About you</label>
+            <textarea class="form-input" type="text" name="bio" id="bio"></textarea>
+            
+            <label for="avatar">Add a profile image</label>
+            <input class="form-input" type="text" id="avatar" name="avatar"/>
+            
+            <label for="banner">Add a banner image</label>
+            <input class="form-input" type="text" id="banner" name="banner"/>
+            
+            <button class="btn btn-primary btn-primary-hover max-w-44 mt-4">Update Profile</button>
+        </form>
+        <div id="postsList" class="mb-7"></div>
+    </main>
   </body>
 </html>

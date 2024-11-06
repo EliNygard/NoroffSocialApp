@@ -4,8 +4,6 @@ import { viewPosts } from "../../ui/posts/viewPosts.js";
 import { authGuard } from "../../utilities/authGuard";
 import { togglePostComments } from "../../utilities/toggle.js";
 
-authGuard();
-
 async function initializePage() {
   const token = api.token;
   if (token) {
@@ -18,6 +16,8 @@ async function initializePage() {
       await viewPosts(allPosts);
       togglePostComments();
     } catch {}
+  } else {
+    authGuard();
   }
 }
 

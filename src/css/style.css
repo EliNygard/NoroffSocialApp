@@ -5,7 +5,11 @@
 @tailwind utilities;
 
 body {
-  @apply font-sans
+  @apply font-sans bg-neutral-50
+}
+
+a {
+  @apply no-underline
 }
 
 li { 
@@ -13,15 +17,19 @@ li {
 }
 
 .btn {
-  @apply rounded py-1 px-3 text-center;
+  @apply py-1 px-3 text-center text-sm max-h-10;
 }
 
 .btn-primary {
-  @apply text-black border-solid border-black border
+  @apply text-black border-solid border-black border rounded
 }
 
 .btn-primary-hover {
-  @apply hover:bg-stone-200 transition duration-200 ease-in-out
+  @apply hover:bg-neutral-200 transition duration-200 ease-in-out
+}
+
+.btn-secondary {
+  @apply text-neutral-50 bg-neutral-600 rounded-xl p-2 text-center text-sm
 }
 
 .btn-auth-hover {
@@ -29,7 +37,7 @@ li {
 }
 
 .form-input {
- @apply border-solid border-black border rounded p-1;
+ @apply text-stone-700 border rounded p-1;
 }
 
 

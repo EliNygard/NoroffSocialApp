@@ -40,7 +40,11 @@ export async function viewProfile() {
     bio.textContent = profile.bio;
 
     const countPosts = document.createElement("p");
-    countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts.`;
+    if (profile._count.posts === 1) {
+      countPosts.textContent = `${profile.name} has written ${profile._count.posts} post.`;
+    } else if (profile._count.posts === 0 || profile._count.posts >= 2) {
+      countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts.`;
+    }
 
     const posts = profile.posts;
 
@@ -57,6 +61,7 @@ export async function viewProfile() {
         li.append(title, body);
         return li;
       });
+      
       document.getElementById("postsList").append(...list);
     } else {
       // rather than alert, display message on page

@@ -18,7 +18,15 @@ export async function onUpdatePost(event) {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
+  const data = {
+    title: formData.get("title"),
+    body: formData.get("body") || "", 
+    media: {
+      url: formData.get("img-url") || "", 
+      alt: formData.get("img-alt") || "", 
+    },
+    // tags: [], add tags if time 
+  };
 
   const id = api.idUrl;
 

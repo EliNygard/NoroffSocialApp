@@ -20,16 +20,18 @@ import { onDeleteComment } from "./deleteComment.js";
  * @throws {Error} Will throw an error if there is an issue fetching the posts from the API.
  */
 
-const loggedinProfile = api.user.name;
-const profile = await api.profiles.readSingleProfile(loggedinProfile);
-const followingProfiles = profile.following;
 
 export async function viewPosts(posts) {
+  const loggedinProfile = api.user.name;
+  const profile = await api.profiles.readSingleProfile(loggedinProfile);
+  const followingProfiles = profile.following;
   try {
 
     // use this to add delete post if user is in local storage
 
     const list = posts.map((post) => {
+      console.log(post);
+      
       const li = document.createElement("li");
       li.className = "my-4 mb-5";
 
@@ -123,11 +125,11 @@ export async function viewPosts(posts) {
       commentsSection.className = "mx-2 mb-4 comments";
 
       const btnToggleComments = document.createElement("button");
-      btnToggleComments.className = "flex flex-row items-center gap-1 mb-2";
+      btnToggleComments.className = "flex flex-row items-center gap-1 md:gap-2 mb-2";
       btnToggleComments.setAttribute("data-toggle-comments", "true");
 
       const icon = document.createElement("i");
-      icon.className = "fa-regular fa-comment size-6 flex items-center md:size-8";
+      icon.className = "fa-regular fa-comment";
 
       const xComments = document.createElement("p");
       xComments.className = "text-xs md:text-sm";

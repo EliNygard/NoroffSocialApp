@@ -203,7 +203,6 @@ export default class SocialAPI {
         console.error(error);
         alert("Could not logout. Please try again.");
       } finally {
-        // clear local storage
         localStorage.clear()
       }
     },
@@ -229,11 +228,11 @@ export default class SocialAPI {
      * @returns {Promise<Object>} The created post data.
      * @throws {Error} Throws an error if the post creation fails.
      */
-    create: async ({ title, body }) => {
+    create: async ({ title, body, media: { url, alt } }) => {
       const response = await fetch(this.apiPostPath, {
         headers: this.util.setupHeaders(true, true, true),
         method: "post",
-        body: JSON.stringify({ title, body }),
+        body: JSON.stringify({ title, body, media: { url, alt } }),
       });
       if (response.ok) {
         return await response.json();
@@ -254,11 +253,11 @@ export default class SocialAPI {
      * @returns {Promise<Object>} The updated post data.
      * @throws {Error} Throws an error if the post update fails.
      */
-    update: async (id, { title, body }) => {
+    update: async (id, { title, body, media: { url, alt } }) => {
       const response = await fetch(`${this.apiPostPath}/${id}`, {
         headers: this.util.setupHeaders(true, true, true),
         method: "put",
-        body: JSON.stringify({ title, body }),
+        body: JSON.stringify({ title, body, media: { url, alt } }),
       });
 
       if (response.ok) {
@@ -330,6 +329,8 @@ export default class SocialAPI {
 
         form.querySelector("#title").value = post.title;
         form.querySelector("#body").value = post.body;
+        form.querySelector("#img-url").value = post.media.url;
+        form.querySelector("#img-alt").value = post.media.alt;
       } catch (error) {
         console.error("Error fetching post data", error);
       }

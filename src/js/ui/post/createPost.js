@@ -19,11 +19,24 @@ export async function onCreatePost(event) {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
+  const data = {
+    title: formData.get("title"),
+    body: formData.get("body") || "", 
+    media: {
+      url: formData.get("img-url") || "", 
+      alt: formData.get("img-alt") || "", 
+    },
+    // tags: [], add tags if time 
+  };
+  
+  console.log(data);
+  
 
   try {
     // show loader
     const post = (await api.post.create(data)).data;
+    console.log(post);
+    
     window.location.href = `../../post/?id=${post.id}`;
   } catch (error) {
     console.error("Error creating post: ", error);

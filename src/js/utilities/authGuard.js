@@ -17,7 +17,7 @@ function displayAuthGuard() {
   card.className = "max-w-xl mx-auto flex flex-col items-center px-6 pt-8 pb-4 gap-5 bg-slate-50 rounded shadow-md shadow-red-200/50 border-blue-950 sm:px-11 md:px-20"
 
   const img = document.createElement("img");
-  img.src = "./images/noroff-logo.png";
+  img.src = "/NoroffSocialApp/images/noroff-logo.png";
   img.alt = "Noroff logo";
 
   const textContainer = document.createElement("div");

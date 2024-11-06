@@ -1,14 +1,41 @@
 import { onLogout } from "../../ui/auth/logout";
+import { displayHeader } from "../../ui/global/header";
 import { onUpdateProfile } from "../../ui/profiles/update";
 import { viewCurrentUser } from "../../ui/profiles/viewCurrentUser";
 import { authGuard } from "../../utilities/authGuard";
+import api from "../../api/instance.js";
 
-authGuard();
+async function initializePage() {
+  const token = api.token;
 
-const form = document.forms.updateProfile;
+  if (token) {
+    onLogout();
+    try {
+      const headerContainer = document.querySelector("header");
+      const header = await displayHeader();
+      headerContainer.appendChild(header);
 
-form.addEventListener("submit", onUpdateProfile);
+      const updateProfileBtn = document.getElementById("updateProfileBtn");
+      const updateProfileForm = document.getElementById("updateProfile");
+      updateProfileBtn.addEventListener("click", () => {
+        if (updateProfileForm) {
+          window.scrollTo({
+            top: updateProfileForm.offsetTop + -150,
+            behavior: "smooth",
+          });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      });
 
+      const form = document.forms.updateProfile;
+      form.addEventListener("submit", onUpdateProfile);
 
-viewCurrentUser();
-onLogout()
+      viewCurrentUser();
+    } catch {}
+  } else {
+    authGuard();
+  }
+}
+
+initializePage();
