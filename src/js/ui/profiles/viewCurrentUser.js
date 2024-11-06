@@ -19,6 +19,7 @@ export async function viewCurrentUser() {
   try {
     const userName = api.user.name;
     const profile = await api.profiles.readSingleProfile(userName);
+    console.log(profile);
 
     const profileCard = document.createElement("section");
     profileCard.className = "sm:text-lg";
@@ -43,12 +44,31 @@ export async function viewCurrentUser() {
     bio.className = "mb-6 mx-2";
     bio.textContent = profile.bio;
 
-    const border = document.createElement("div");
-    border.className = "border border-gray-400 mb-6 mx-2";
+    const infoContainer = document.createElement("div");
+    infoContainer.className = "flex flex-col gap-1 mx-2 sm:flex-row sm:justify-between";
 
     const countPosts = document.createElement("p");
-    countPosts.className = "mb-6 mx-2";
-    countPosts.textContent = `${profile.name} has written ${profile._count.posts} posts.`;
+    countPosts.className = "btn-secondary";
+    if (profile._count.posts === 1) {
+      countPosts.textContent = `You have written ${profile._count.posts} post`;
+    } else if (profile._count.posts === 0 || profile._count.posts >= 2) {
+      countPosts.textContent = `You have written ${profile._count.posts} posts`;
+    }
+
+    const countFollowing = document.createElement("p");
+    countFollowing.className = "btn-secondary";
+    if (profile.following.length === 1) {
+      countFollowing.textContent = `You are following ${profile.following.length} user`;
+    } else if (profile.following.length === 0 || profile.following.length > 1) {
+      countFollowing.textContent = `You are following ${profile.following.length} users`;
+    }
+
+    const countFollowers = document.createElement("p");
+    countFollowers.className = "btn-secondary";
+    countFollowers.textContent = `You have ${profile.followers.length} followers`;
+
+    infoContainer.append(countPosts, countFollowing, countFollowers);
+
     const posts = profile.posts;
 
     if (posts) {
@@ -99,7 +119,7 @@ export async function viewCurrentUser() {
       // rather than alert, display message on page
       alert("You have no posts yet. Why not create your first?");
     }
-    profileCard.append(banner, profileContainer, bio, border, countPosts);
+    profileCard.append(banner, profileContainer, bio, infoContainer);
     document.getElementById("profileCard").appendChild(profileCard);
   } catch (error) {
     console.error("Error fetching profile: ", error);
