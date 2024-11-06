@@ -30,6 +30,8 @@ export async function viewPosts(posts) {
     // use this to add delete post if user is in local storage
 
     const list = posts.map((post) => {
+      console.log(post);
+      
       const li = document.createElement("li");
       li.className = "my-4 mb-5";
 
