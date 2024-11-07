@@ -58,9 +58,9 @@ export async function viewCurrentUser() {
     const countFollowing = document.createElement("p");
     countFollowing.className = "btn-secondary";
     if (profile.following.length === 1) {
-      countFollowing.textContent = `You are following ${profile.following.length} user`;
+      countFollowing.textContent = `You are following ${profile.following.length} profile`;
     } else if (profile.following.length === 0 || profile.following.length > 1) {
-      countFollowing.textContent = `You are following ${profile.following.length} users`;
+      countFollowing.textContent = `You are following ${profile.following.length} profiles`;
     }
 
     const countFollowers = document.createElement("p");
