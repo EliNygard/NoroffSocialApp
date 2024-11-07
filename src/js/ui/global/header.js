@@ -57,7 +57,7 @@ export async function displayHeader() {
     aLogo.appendChild(imgLogo);
     aProfile.appendChild(imgProfile)
     divFirst.append(aLogo, aProfile)
-    divSec.append(aHome, aCommunity, aNewPost)
+    divSec.append(aCommunity, aHome, aNewPost)
     nav.append(divFirst, divSec);
 
     return nav;
