@@ -2,13 +2,11 @@ export class CustomButton extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
-
     const button = document.createElement("a");
     button.textContent = this.getAttribute("text") || "Button";
     button.href = this.getAttribute("href") || "#";
 
-    shadow.appendChild(button);
+    this.appendChild(button);
   }
 
   static get observedAttributes() {
