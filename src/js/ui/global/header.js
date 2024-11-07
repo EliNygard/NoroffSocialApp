@@ -17,7 +17,7 @@ export async function displayHeader() {
       throw new Error("No profile or avatar image found");
 
     const nav = document.createElement("nav");
-    nav.className = "flex flex-col mt-4 max-w-xl m-auto px-2"
+    nav.className = "flex flex-col mt-4 mb-5 max-w-xl m-auto px-2"
 
     const divFirst = document.createElement("div")
     divFirst.className = "flex justify-between items-center"
@@ -40,7 +40,7 @@ export async function displayHeader() {
     imgProfile.setAttribute("title", "My profile")
     
     const divSec = document.createElement("div")
-    divSec.className = "flex justify-between mt-4 mb-8 sm:text-lg"
+    divSec.className = "flex justify-between mt-4 sm:text-lg"
 
     const aHome = document.createElement("a")
     aHome.href = "/NoroffSocialApp/"
