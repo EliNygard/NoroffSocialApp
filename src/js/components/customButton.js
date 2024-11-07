@@ -14,10 +14,11 @@ export class CustomButton extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    const button = this.querySelector("a");
     if (name === "text") {
-      this.shadowRoot.querySelector("a").textContent = newValue;
+      button.textContent = newValue;
     } else if (name === "href") {
-      this.shadowRoot.querySelector("a").href = newValue;
+      button.href = newValue;
     }
   }
 }
