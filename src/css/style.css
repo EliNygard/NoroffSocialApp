@@ -1,61 +1,42 @@
 @import url(_reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply font-sans bg-neutral-50
+  @apply font-poppins bg-neutral-50;
 }
 
 a {
-  @apply no-underline
+  @apply no-underline;
 }
 
-li { 
-  @apply list-none
+li {
+  @apply list-none;
 }
 
 .btn {
-  @apply py-1 px-3 text-center text-sm max-h-10 cursor-pointer;
+  @apply py-2 px-3 text-center text-sm max-h-10 cursor-pointer;
 }
 
 .btn-primary {
-  @apply text-black border-solid border-black border rounded
+  @apply text-black border-solid border-black border rounded;
 }
 
 .btn-primary-hover {
-  @apply hover:bg-neutral-200 transition duration-200 ease-in-out
+  @apply hover:bg-neutral-200 transition duration-200 ease-in-out;
 }
 
 .btn-secondary {
-  @apply text-neutral-50 bg-neutral-600 rounded-sm p-2 text-center text-sm
+  @apply text-neutral-50 bg-neutral-600 rounded-sm p-2 text-center text-sm;
 }
 
 .btn-auth-hover {
- @apply hover:bg-green-700 transition duration-200 ease-in-out rounded;
+  @apply hover:bg-green-700 transition duration-200 ease-in-out rounded;
 }
 
 .form-input {
- @apply text-stone-700 border rounded p-1 bg-neutral-50;
+  @apply text-stone-700 border rounded p-1 bg-neutral-50;
 }
-
-
-/* Ensure the container covers the whole screen */
-/*
-.fullscreen-container {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100vw; 
-  height: 100vh; 
-  display: flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 4rem;
-  color: #fff; 
-  z-index: 9999; 
-}
-*/
