@@ -1,14 +1,20 @@
 import { viewProfiles } from "../../ui/profiles/viewProfiles.js";
 import api from "../../api/instance.js";
+import { searchProfiles } from "../../utilities/search.js";
+
+const searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", async () => {
+  await searchProfiles();
+});
 
 let page = 1;
 const limit = 30;
 
-const urlParams = new URLSearchParams(window.location.search)
-const urlPage = urlParams.get("page")
+const urlParams = new URLSearchParams(window.location.search);
+const urlPage = urlParams.get("page");
 
 if (urlPage) {
-    page = parseInt(urlPage)
+  page = parseInt(urlPage);
 }
 
 export function updateButtonStates() {
@@ -67,19 +73,19 @@ async function displayPagesProfiles() {
 
     // "First" button (always visible, takes user to the first page group)
     if (page > 1) {
-        const firstButton = document.createElement("button")
-        firstButton.textContent = "First 10 pages"
-        firstButton.addEventListener("click", () => {
-            page = 1;
-            currentPageGroup = 0;
-            renderPageButtons()
-            const url = new URL(window.location.href)
-            url.searchParams.set("page", page)
-            window.history.pushState({}, "", url)
-            viewProfiles(limit, page)
-            updateButtonStates()
-        })
-        paginationContainer.appendChild(firstButton)
+      const firstButton = document.createElement("button");
+      firstButton.textContent = "First 10 pages";
+      firstButton.addEventListener("click", () => {
+        page = 1;
+        currentPageGroup = 0;
+        renderPageButtons();
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page);
+        window.history.pushState({}, "", url);
+        viewProfiles(limit, page);
+        updateButtonStates();
+      });
+      paginationContainer.appendChild(firstButton);
     }
 
     // "Previous" button (to go to the previous set of 10 pages)
@@ -97,49 +103,49 @@ async function displayPagesProfiles() {
     for (let i = startPage; i <= endPage; i++) {
       const button = document.createElement("button");
       button.textContent = i;
-      
-        // if (i === page) {
-        //     button.setAttribute("disabled", true);
-        //   } 
-        button.addEventListener("click", () => {
-            const url = new URL(window.location.href);
-            page = i;
+
+      // if (i === page) {
+      //     button.setAttribute("disabled", true);
+      //   }
+      button.addEventListener("click", () => {
+        const url = new URL(window.location.href);
+        page = i;
         url.searchParams.set("page", page);
         window.history.pushState({}, "", url);
         viewProfiles(limit, page);
         updateButtonStates();
       });
-      paginationContainer.appendChild(button)
+      paginationContainer.appendChild(button);
     }
 
     // "Next" button (to go to the next set of 10 pages)
     if (endPage < totalPages) {
-        const nextButton = document.createElement("button")
-        nextButton.textContent = "Next 10 pages"
-        nextButton.addEventListener("click", () => {
-            currentPageGroup++
-            renderPageButtons()
-        })
-        paginationContainer.appendChild(nextButton)
+      const nextButton = document.createElement("button");
+      nextButton.textContent = "Next 10 pages";
+      nextButton.addEventListener("click", () => {
+        currentPageGroup++;
+        renderPageButtons();
+      });
+      paginationContainer.appendChild(nextButton);
     }
 
     // "Last" button (always visible, takes user to the last page group)
     if (page < totalPages) {
-        const lastButton = document.createElement("button")
-        lastButton.textContent = "Last 10 pages"
-        lastButton.addEventListener("click", () => {
-            page = totalPages
-            currentPageGroup = Math.floor((totalPages - 1) / pagesPerGroup)
-            renderPageButtons()
-            const url = new URL(window.location.href)
-            url.searchParams.set("page", page)
-            window.history.pushState({}, "", url)
-            viewProfiles(limit, page)
-            updateButtonStates()
-        })
-        paginationContainer.appendChild(lastButton)
+      const lastButton = document.createElement("button");
+      lastButton.textContent = "Last 10 pages";
+      lastButton.addEventListener("click", () => {
+        page = totalPages;
+        currentPageGroup = Math.floor((totalPages - 1) / pagesPerGroup);
+        renderPageButtons();
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page);
+        window.history.pushState({}, "", url);
+        viewProfiles(limit, page);
+        updateButtonStates();
+      });
+      paginationContainer.appendChild(lastButton);
     }
   }
-  renderPageButtons()
+  renderPageButtons();
 }
 displayPagesProfiles();

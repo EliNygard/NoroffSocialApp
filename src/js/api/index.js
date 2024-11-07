@@ -559,6 +559,7 @@ export default class SocialAPI {
       }
       throw new Error("Could not fetch posts from profile.");
     },
+
     /**
      * Updates or edits an existing profile
      *
@@ -585,5 +586,19 @@ export default class SocialAPI {
       }
       throw new Error("Error updating profile. Please try again.");
     },
+
+    searchProfile: async (query) => {
+      const url = new URL(`${this.apiProfilesPath}/search?q=${query}`)
+
+      const response = await fetch(url, {
+        headers: this.util.setupHeaders(true, true, true),
+        method: "GET",
+        
+      })
+      if (response.ok) {
+        return await response.json()
+      }
+      throw new Error("Could not find a search for that input. Please try again.")
+    }
   };
 }
