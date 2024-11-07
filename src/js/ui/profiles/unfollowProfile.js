@@ -21,14 +21,11 @@ export async function onUnfollowProfile(profile) {
   try {
     await api.profiles.unfollow(unfollow);
     alert(`You are not following ${unfollow} anymore.`);
-
-    if (window.location.pathname === "/" || window.location.pathname.includes("/index.html")) {
-      window.location.reload()
-    }
   } catch (error) {
     console.error("Error trying to unfollow profile: ", error);
     alert(error);
   } finally {
+      window.location.reload()
     // loader
   }
 }
