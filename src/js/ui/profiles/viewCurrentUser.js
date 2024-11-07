@@ -19,7 +19,6 @@ export async function viewCurrentUser() {
   try {
     const userName = api.user.name;
     const profile = await api.profiles.readSingleProfile(userName);
-    console.log(profile);
 
     const profileCard = document.createElement("section");
     profileCard.className = "sm:text-lg";
@@ -45,7 +44,8 @@ export async function viewCurrentUser() {
     bio.textContent = profile.bio;
 
     const infoContainer = document.createElement("div");
-    infoContainer.className = "flex flex-col gap-1 mx-2 sm:flex-row sm:justify-between";
+    infoContainer.className =
+      "flex flex-col gap-1 mx-2 sm:flex-row sm:justify-between";
 
     const countPosts = document.createElement("p");
     countPosts.className = "btn-secondary";

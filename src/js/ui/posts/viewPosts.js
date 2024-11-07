@@ -20,21 +20,16 @@ import { onDeleteComment } from "./deleteComment.js";
  * @throws {Error} Will throw an error if there is an issue fetching the posts from the API.
  */
 
-
 export async function viewPosts(posts) {
   const loggedinProfile = api.user.name;
   const profile = await api.profiles.readSingleProfile(loggedinProfile);
   const followingProfiles = profile.following;
-  console.log(followingProfiles);
-  
-  try {
 
+  try {
     // use this to add delete post if user is in local storage
 
     const list = posts.map((post) => {
-      console.log(post);
-      
-      
+
       const li = document.createElement("li");
       li.className = "my-4 mb-5";
 
@@ -45,7 +40,7 @@ export async function viewPosts(posts) {
 
       const leftContainer = document.createElement("a");
       leftContainer.className = "flex justify-start items-center gap-3";
-      leftContainer.href = `/NoroffSocialApp/profiles/profile/?view=profile&name=${post.author.name}`
+      leftContainer.href = `/NoroffSocialApp/profiles/profile/?view=profile&name=${post.author.name}`;
 
       const headerAvatar = document.createElement("img");
       headerAvatar.className = "rounded-full object-cover size-12";
@@ -83,13 +78,15 @@ export async function viewPosts(posts) {
 
       leftContainer.append(headerAvatar, usernameHeader);
       profileHeader.appendChild(leftContainer);
-      
-      const isFollowing = followingProfiles.some(followed => followed.name === post.author.name)
-      
+
+      const isFollowing = followingProfiles.some(
+        (followed) => followed.name === post.author.name
+      );
+
       if (isFollowing) {
-        profileHeader.appendChild(btnToggleUnFollow)
+        profileHeader.appendChild(btnToggleUnFollow);
       } else {
-        profileHeader.appendChild(btnToggleFollow)
+        profileHeader.appendChild(btnToggleFollow);
       }
 
       // The post
@@ -128,7 +125,8 @@ export async function viewPosts(posts) {
       commentsSection.className = "mx-2 mb-4 comments";
 
       const btnToggleComments = document.createElement("button");
-      btnToggleComments.className = "flex flex-row items-center gap-1 md:gap-2 mb-2";
+      btnToggleComments.className =
+        "flex flex-row items-center gap-1 md:gap-2 mb-2";
       btnToggleComments.setAttribute("data-toggle-comments", "true");
 
       const icon = document.createElement("i");
@@ -169,7 +167,7 @@ export async function viewPosts(posts) {
         const aAuthor = document.createElement("a");
         aAuthor.className = "font-semibold";
         aAuthor.textContent = `${comment.author.name}`;
-        aAuthor.href = `/NoroffSocialApp/profiles/profile/?name=${comment.author.name}`
+        aAuthor.href = `/NoroffSocialApp/profiles/profile/?name=${comment.author.name}`;
 
         const body = document.createElement("p");
         body.className = "pt-2";
@@ -229,7 +227,7 @@ export async function viewPosts(posts) {
       textarea.setAttribute("id", "body");
 
       const button = document.createElement("button");
-      button.className = "btn btn-primary btn-primary-hover text-sm max-w-44"
+      button.className = "btn btn-primary btn-primary-hover text-sm max-w-44";
       button.textContent = "Comment";
       button.setAttribute("type", "submit");
 
