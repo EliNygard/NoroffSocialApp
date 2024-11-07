@@ -29,7 +29,6 @@ export async function viewPosts(posts) {
     // use this to add delete post if user is in local storage
 
     const list = posts.map((post) => {
-
       const li = document.createElement("li");
       li.className = "my-4 mb-5";
 
@@ -55,8 +54,7 @@ export async function viewPosts(posts) {
         "btn",
         "btn-primary",
         "btn-primary-hover",
-        "text-sm",
-        "max-h-10"
+        "text-sm"
       );
       btnToggleFollow.textContent = "Follow";
       btnToggleFollow.addEventListener("click", () =>
@@ -68,8 +66,7 @@ export async function viewPosts(posts) {
         "btn",
         "btn-primary",
         "btn-primary-hover",
-        "text-sm",
-        "max-h-10"
+        "text-sm"
       );
       btnToggleUnFollow.textContent = "Unfollow";
       btnToggleUnFollow.addEventListener("click", () =>
