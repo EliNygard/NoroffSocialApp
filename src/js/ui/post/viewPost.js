@@ -44,10 +44,10 @@ export async function viewPost() {
     const btnContainer = document.createElement("div")
     btnContainer.className = "flex justify-end gap-5"
 
-    const btnEdit = document.createElement("custom-button");
+    const btnEdit = document.createElement("a");
     btnEdit.className = "btn btn-primary btn-primary-hover"
-    btnEdit.setAttribute("text", "Edit post");
-    btnEdit.setAttribute("href", `./edit/?id=${id}`);
+    btnEdit.textContent = "Edit post";
+    btnEdit.href = `./edit/?id=${id}`;
     
     const btnDelete = document.createElement("button");
     btnDelete.className = "btn btn-primary btn-primary-hover"
