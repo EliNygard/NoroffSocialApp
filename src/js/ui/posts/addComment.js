@@ -33,7 +33,8 @@ export async function onComment(event, postId) {
   } finally {
     form.reset();
     localStorage.removeItem("id");
-    window.location.href = "/";
+    // window.location.href = "/";
+    window.location.reload()
     // hide loader
   }
 }
