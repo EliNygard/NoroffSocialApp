@@ -21,7 +21,7 @@
 
 @layer components {
   .btn {
-    @apply py-2 px-3 text-center text-sm max-h-10 cursor-pointer;
+    @apply py-2 px-2 text-center text-xs max-h-10 cursor-pointer sm:text-sm;
 
     &.btn-primary {
       @apply text-black border-solid border-black border rounded;
