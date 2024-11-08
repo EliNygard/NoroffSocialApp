@@ -26,8 +26,6 @@ export async function viewPost() {
       throw new Error("Could not find a post ID. Unable to display the post.");
 
     const post = await api.post.read(id);
-    console.log(post);
-    
 
     const section = document.createElement("section");
     section.className = "m-auto px-2 pb-7 max-w-xl flex flex-col"
@@ -39,7 +37,7 @@ export async function viewPost() {
     const btnBack = document.createElement("a")
     btnBack.className = "flex justify-start btn btn-primary btn-primary-hover"
     btnBack.href = "/NoroffSocialApp/profile/"
-    btnBack.textContent = "Back to profile page"
+    btnBack.textContent = "Back"
 
     const btnContainer = document.createElement("div")
     btnContainer.className = "flex justify-end gap-5"
@@ -194,7 +192,7 @@ export async function viewPost() {
     textarea.setAttribute("id", "body");
 
     const button = document.createElement("button");
-    button.className = "btn btn-primary btn-primary-hover text-sm max-w-44"
+    button.className = "btn btn-primary btn-primary-hover max-w-44"
     button.textContent = "Comment";
     button.setAttribute("type", "submit");
 

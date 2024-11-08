@@ -44,6 +44,14 @@ export default class SocialAPI {
     localStorage.setItem("token", accessToken);
   }
 
+  set id(value) {
+    try {
+      localStorage.id = JSON.stringify(value);
+    } catch {
+      return null
+    }
+  }
+
   get id() {
     try {
       return JSON.parse(localStorage.id);

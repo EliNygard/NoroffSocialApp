@@ -54,7 +54,6 @@ export async function viewPosts(posts) {
         "btn",
         "btn-primary",
         "btn-primary-hover",
-        "text-sm"
       );
       btnToggleFollow.textContent = "Follow";
       btnToggleFollow.addEventListener("click", () =>
@@ -66,7 +65,6 @@ export async function viewPosts(posts) {
         "btn",
         "btn-primary",
         "btn-primary-hover",
-        "text-sm"
       );
       btnToggleUnFollow.textContent = "Unfollow";
       btnToggleUnFollow.addEventListener("click", () =>
@@ -224,7 +222,7 @@ export async function viewPosts(posts) {
       textarea.setAttribute("id", "body");
 
       const button = document.createElement("button");
-      button.className = "btn btn-primary btn-primary-hover text-sm max-w-44";
+      button.className = "btn btn-primary btn-primary-hover max-w-44";
       button.textContent = "Comment";
       button.setAttribute("type", "submit");
 
