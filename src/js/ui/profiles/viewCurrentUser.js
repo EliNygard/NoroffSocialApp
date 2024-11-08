@@ -89,7 +89,7 @@ export async function viewCurrentUser() {
         }
 
         const postDate = document.createElement("p");
-        postDate.className = "mx-2 text-xs flex justify-end text-stone-700";
+        postDate.className = "mx-2 text-xs flex justify-end text-stone-700 dark:text-stone-300";
         if (post.updated === post.created) {
           postDate.textContent = formatDate(post.created);
         } else {
