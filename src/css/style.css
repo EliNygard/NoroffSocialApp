@@ -5,37 +5,49 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-poppins bg-neutral-50;
+@layer base {
+  body {
+    @apply font-poppins bg-neutral-50;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  li {
+    @apply list-none;
+  }
 }
 
-a {
-  @apply no-underline;
+@layer components {
+  .btn {
+    @apply py-2 px-2 text-center text-xs max-h-10 cursor-pointer sm:text-sm;
+
+    &.btn-primary {
+      @apply text-black border-solid border-black border rounded;
+    }
+
+    &.btn-primary-hover {
+      @apply hover:bg-neutral-200 transition duration-200 ease-in-out;
+    }
+
+    &.btn-auth {
+      @apply mt-5 bg-green-800 text-stone-100;
+    }
+
+    &.btn-auth-hover {
+      @apply hover:bg-green-700 transition duration-200 ease-in-out rounded;
+    }
+  }
+
+  .btn-secondary {
+    @apply text-neutral-50 bg-neutral-600 rounded-sm p-2 text-center text-sm;
+  }
 }
 
-li {
-  @apply list-none;
-}
-
-.btn {
-  @apply py-2 px-3 text-center text-sm max-h-10 cursor-pointer;
-}
-
-.btn-primary {
-  @apply text-black border-solid border-black border rounded;
-}
-
-.btn-primary-hover {
-  @apply hover:bg-neutral-200 transition duration-200 ease-in-out;
-}
-
-.btn-secondary {
-  @apply text-neutral-50 bg-neutral-600 rounded-sm p-2 text-center text-sm;
-}
-
-.btn-auth-hover {
+/* .btn-auth-hover {
   @apply hover:bg-green-700 transition duration-200 ease-in-out rounded;
-}
+} */
 
 .form-input {
   @apply text-stone-700 border rounded p-1 bg-neutral-50;
