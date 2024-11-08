@@ -73,7 +73,6 @@ export async function viewCurrentUser() {
 
     if (posts) {
       const list = posts.map((post) => {
-        console.log(post);
 
         const li = document.createElement("li");
         li.className = "mx-2";

@@ -26,8 +26,6 @@ export async function viewPost() {
       throw new Error("Could not find a post ID. Unable to display the post.");
 
     const post = await api.post.read(id);
-    console.log(post);
-    
 
     const section = document.createElement("section");
     section.className = "m-auto px-2 pb-7 max-w-xl flex flex-col"
