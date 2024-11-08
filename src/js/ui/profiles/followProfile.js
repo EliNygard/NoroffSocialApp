@@ -24,5 +24,7 @@ export async function onFollowProfile(profile) {
   } catch (error) {
     console.error("Error trying to follow profile: ", error);
     alert(error);
+  } finally {
+    window.location.reload()
   }
 }
