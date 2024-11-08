@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply font-poppins bg-neutral-50;
+    @apply font-poppins bg-neutral-50 dark:bg-stone-900 dark:text-neutral-300;
   }
 
   a {
@@ -24,11 +24,11 @@
     @apply py-2 px-2 text-center text-xs max-h-10 cursor-pointer sm:text-sm;
 
     &.btn-primary {
-      @apply text-black border-solid border-black border rounded;
+      @apply text-black border-solid border-black border rounded dark:text-neutral-100 dark:border-neutral-300;
     }
 
     &.btn-primary-hover {
-      @apply hover:bg-neutral-200 transition duration-200 ease-in-out;
+      @apply hover:bg-neutral-200 transition duration-200 ease-in-out dark:hover:text-stone-800;
     }
 
     &.btn-auth {

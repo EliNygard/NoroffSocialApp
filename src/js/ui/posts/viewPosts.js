@@ -95,7 +95,7 @@ export async function viewPosts(posts) {
       }
 
       const postDate = document.createElement("p");
-      postDate.className = "mx-2 text-xs flex justify-end text-stone-700";
+      postDate.className = "mx-2 text-xs flex justify-end text-stone-700 dark:text-stone-300";
       if (post.updated === post.created) {
         postDate.textContent = formatDate(post.created);
       } else {
@@ -151,7 +151,7 @@ export async function viewPosts(posts) {
         const commentId = comment.id;
 
         const commentsLi = document.createElement("li");
-        commentsLi.className = "py-1";
+        commentsLi.className = "py-1 mb-2";
 
         const div = document.createElement("div");
         div.className = "flex flex-row justify-between";
@@ -165,7 +165,7 @@ export async function viewPosts(posts) {
         aAuthor.href = `/NoroffSocialApp/profiles/profile/?name=${comment.author.name}`;
 
         const body = document.createElement("p");
-        body.className = "pt-2";
+        body.className = "pt-2 pl-2";
         body.textContent = comment.body;
 
         commentContainer.append(aAuthor, body);
@@ -188,7 +188,7 @@ export async function viewPosts(posts) {
         }
 
         const date = document.createElement("p");
-        date.className = "text-xs text-stone-700 mt-3";
+        date.className = "text-xs text-stone-700 mt-3 pl-2 dark:text-stone-300";
         date.textContent = formatDate(comment.created);
 
         commentsLi.append(div, date);
