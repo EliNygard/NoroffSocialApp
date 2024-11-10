@@ -11,11 +11,11 @@ export function authGuard() {
 function displayAuthGuard() {
   const container = document.createElement("div");
   container.className =
-    "bg-gray-100 fixed top-0 left-0 w-screen h-screen flex flex-col justify-center items-center gap-1 p-4 z-50 dark:bg-stone-900";
+    "bg-gray-100 fixed top-0 left-0 w-screen h-screen flex flex-col items-center gap-1 p-4 z-50 sm:justify-center dark:bg-stone-900";
 
   const card = document.createElement("div");
-  card.className =
-    "max-w-xl mx-auto flex flex-col items-center px-6 pt-8 pb-4 gap-5 bg-slate-50 rounded shadow-md shadow-red-200/50 border-blue-950 sm:px-11 md:px-20 dark:bg-stone-700 dark:shadow-stone-900";
+  card.className = "max-w-xl bg-slate-50 mt-3 flex flex-col items-center gap-5 px-6 pt-8 pb-4 rounded shadow-md shadow-red-200/50 dark:bg-stone-700 dark:shadow-stone-900"
+    // " mx-auto m-3     border-blue-950 sm:px-11 md:px-20 ";
 
   const img = document.createElement("img");
   img.src = "/NoroffSocialApp/images/noroff-logo.png";
