@@ -1,7 +1,7 @@
 {
   "name": "noroff-social-app",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "main": "./src/app.js",
   "scripts": {
@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/EliNygard/NoroffSocialApp#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
     "vite": "^5.4.1"
   }
 }

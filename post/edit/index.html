@@ -5,19 +5,33 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Post</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
     <script type="module" src="../../src/app.js"></script>
   </head>
 
   <body>
-    <h1>Edit Post</h1>
-
-    <form name="editPost" enctype="multipart/form-data">
-      <label for="title">Title</label>
-      <input required type="text" id="title" name="title" />
-
-      <label for="body">Content</label>
-      <textarea name="body" id="body"></textarea>
-      <button>Edit Post</button>
-    </form>
+    <header></header>
+    <section class="flex flex-col justify-center m-auto px-3 max-w-xl mt-9 bg-neutral-100 rounded dark:bg-stone-700">
+      <post-form heading="Edit post" button-text="Edit post"></post-form>
+    </section>
   </body>
 </html>

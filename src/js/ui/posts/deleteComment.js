@@ -20,9 +20,11 @@ export async function onDeleteComment(postId, commentId) {
   try {
     await api.posts.deleteComment(postId, commentId);
     alert(`Comment #${commentId} has been deleted.`);
-    window.location.href = "/";
+    // window.location.href = "/";
   } catch (error) {
     console.error("Error: ", error);
     alert(error);
+  } finally {
+    window.location.reload()
   }
 }

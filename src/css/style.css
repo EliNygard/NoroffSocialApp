@@ -1,44 +1,54 @@
 @import url(_reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;700&display=swap");
 
-body {
-    background-color: rgb(249, 243, 242);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-poppins bg-neutral-50 dark:bg-stone-900 dark:text-neutral-300;
   }
 
-li {
-    list-style-type: none;
-  }
-  
-  .post-img {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
+  a {
+    @apply no-underline;
   }
 
-.profile-banner {
-  width: 500px;
-  object-fit: cover;
+  li {
+    @apply list-none;
+  }
 }
 
-.profile-avatar {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
+@layer components {
+  .btn {
+    @apply py-2 px-2 text-center text-xs max-h-10 cursor-pointer sm:text-sm;
+
+    &.btn-primary {
+      @apply text-black border-solid border-black border rounded dark:text-neutral-100 dark:border-neutral-300;
+    }
+
+    &.btn-primary-hover {
+      @apply hover:bg-neutral-200 transition duration-200 ease-in-out dark:hover:text-stone-800;
+    }
+
+    &.btn-auth {
+      @apply mt-5 bg-green-800 text-stone-100;
+    }
+
+    &.btn-auth-hover {
+      @apply hover:bg-green-700 transition duration-200 ease-in-out rounded;
+    }
+  }
+
+  .btn-secondary {
+    @apply text-neutral-50 bg-neutral-600 rounded-sm p-2 text-center text-sm;
+  }
 }
 
-/* Ensure the container covers the whole screen */
-.fullscreen-container {
-  position: fixed; /* Keeps it in place */
-  top: 0;
-  left: 0;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  display: flex; /* Centers content */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 4rem;
-  background-color: rgb(48, 76, 136); /* Optional: dark overlay */
-  color: #fff; /* Optional: text color */
-  z-index: 9999; /* Bring it to the front */
+/* .btn-auth-hover {
+  @apply hover:bg-green-700 transition duration-200 ease-in-out rounded;
+} */
+
+.form-input {
+  @apply text-stone-700 border rounded p-1 bg-neutral-50;
 }
