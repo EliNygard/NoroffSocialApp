@@ -236,11 +236,18 @@ export default class SocialAPI {
      * @returns {Promise<Object>} The created post data.
      * @throws {Error} Throws an error if the post creation fails.
      */
-    create: async ({ title, body, media: { url, alt } }) => {
+    create: async ({ title, body, media }) => {
+      const postData = { title};
+      if (body) {
+        postData.body = body;
+      }
+      if (media) {
+        postData.media = media;
+      }
       const response = await fetch(this.apiPostPath, {
         headers: this.util.setupHeaders(true, true, true),
         method: "post",
-        body: JSON.stringify({ title, body, media: { url, alt } }),
+        body: JSON.stringify(postData),
       });
       if (response.ok) {
         return await response.json();
@@ -261,11 +268,18 @@ export default class SocialAPI {
      * @returns {Promise<Object>} The updated post data.
      * @throws {Error} Throws an error if the post update fails.
      */
-    update: async (id, { title, body, media: { url, alt } }) => {
+    update: async (id, { title, body, media }) => {
+      const postData = { title};
+      if (body) {
+        postData.body = body;
+      }
+      if (media) {
+        postData.media = media;
+      }
       const response = await fetch(`${this.apiPostPath}/${id}`, {
         headers: this.util.setupHeaders(true, true, true),
         method: "put",
-        body: JSON.stringify({ title, body, media: { url, alt } }),
+        body: JSON.stringify(postData),
       });
 
       if (response.ok) {
