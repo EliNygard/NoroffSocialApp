@@ -21,13 +21,20 @@ export async function onCreatePost(event) {
   const formData = new FormData(form);
   const data = {
     title: formData.get("title"),
-    body: formData.get("body") || "",
-    media: {
-      url: formData.get("img-url") || "",
-      alt: formData.get("img-alt") || "",
-    },
-    // tags: [], add tags if time
   };
+  const body = formData.get("body");
+  if (body) {
+    data.body = body;
+  }
+  const imgUrl = formData.get("img-url");
+  const ImgAlt = formData.get("img-alt");
+  if (imgUrl || ImgAlt) {
+    data.media = {
+      url: imgUrl || "",
+      alt: ImgAlt || "",
+    };
+  }
+  // tags: [], add tags if time
 
   try {
     // show loader
