@@ -1,6 +1,9 @@
-export function formatDate(dateString) {
-  const dateToFormat = dateString;
-  const date = new Date(dateToFormat);
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) {
+    throw new Error("Invalid date format")
+  }
+
   const year = date.getFullYear();
   const monthNames = [
     "January",
