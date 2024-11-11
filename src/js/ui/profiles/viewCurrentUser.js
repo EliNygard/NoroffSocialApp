@@ -1,5 +1,5 @@
 import api from "../../api/instance.js";
-import { formatDate } from "../../utilities/formatting.js";
+import { formatDate } from "../../utilities/formatting.ts";
 
 /**
  * Fetches and displays the current logged-in user's profile and posts.

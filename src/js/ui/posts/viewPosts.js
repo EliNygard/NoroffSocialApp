@@ -1,5 +1,5 @@
 import api from "../../api/instance.js";
-import { formatDate } from "../../utilities/formatting.js";
+import { formatDate } from "../../utilities/formatting.ts";
 import { onFollowProfile } from "../profiles/followProfile.js";
 import { onUnfollowProfile } from "../profiles/unfollowProfile.js";
 import { onComment } from "./addComment.js";

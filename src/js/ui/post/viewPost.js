@@ -1,7 +1,7 @@
 import api from "../../api/instance.js";
 import { onDeletePost } from "./deletePost.js";
 import { CustomButton } from "../../components/customButton.js"
-import { formatDate } from "../../utilities/formatting.js";
+import { formatDate } from "../../utilities/formatting.ts";
 import { onDeleteComment } from "../posts/deleteComment.js";
 
 /**
