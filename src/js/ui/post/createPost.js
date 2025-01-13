@@ -19,11 +19,27 @@ export async function onCreatePost(event) {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
+  const data = {
+    title: formData.get("title"),
+  };
+  const body = formData.get("body");
+  if (body) {
+    data.body = body;
+  }
+  const imgUrl = formData.get("img-url");
+  const ImgAlt = formData.get("img-alt");
+  if (imgUrl || ImgAlt) {
+    data.media = {
+      url: imgUrl || "",
+      alt: ImgAlt || "",
+    };
+  }
+  // tags: [], add tags if time
 
   try {
     // show loader
     const post = (await api.post.create(data)).data;
+
     window.location.href = `../../post/?id=${post.id}`;
   } catch (error) {
     console.error("Error creating post: ", error);

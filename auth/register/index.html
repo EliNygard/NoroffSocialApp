@@ -1,55 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <script type="module" src="../../src/app.js"></script>
   </head>
 
-  <body>
-    <h1>Register</h1>
+  <body class=" w-screen h-screen flex justify-center items-center">
+    <main>
+      <section
+        id="registerSection"
+        class="max-w-xl mx-3 flex flex-col justify-center px-6 pt-8 pb-4 gap-5 bg-neutral-100 rounded shadow-md shadow-red-200/50 sm:px-11 md:px-20 dark:bg-stone-700 dark:shadow-stone-900"
+      >
+        <img src="/images/noroff-logo.png" alt="Noroff logo" />
+        <h1 class="text-center mt-4 text-lg md:text-2xl md:leading-10">
+          Register to the <span class="block"> Noroff Social Community </span>
+        </h1>
 
-    <form name="register">
-      <div>
-        <label for="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          required
-          maxlength="20"
-          pattern="^[\w]+$"
-          title="Please enter a username using only letters and numbers"
-        />
-      </div>
+        <form class="flex flex-col gap-2 max-w-2xl" name="register">
+          <label for="name">User name</label>
+          <input
+            class="form-input"
+            id="name"
+            type="text"
+            name="name"
+            required
+            maxlength="20"
+            pattern="^[\w]+$"
+            placeholder="Name"
+            title="Please enter a username using only letters and numbers"
+          />
+          <label for="email">Email</label>
+          <input
+            class="form-input"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="example@noroff.no"
+            required
+            pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+            title="Please enter a valid noroff.no or stud.noroff.no address"
+          />
 
-      <div>
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-          title="Please enter a valid noroff.no or stud.noroff.no address"
-        />
-      </div>
+          <label for="password">Password</label>
+          <input
+            class="form-input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            required
+            minlength="8"
+            title="Please enter a password with a minimum length of 8 characters"
+          />
 
-      <div>
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          minlength="8"
-        />
-      </div>
-
-      <a href="../login/">Login</a>
-      <button>Register</button>
-    </form>
+          <button class="btn btn-auth btn-auth-hover">
+            Register
+          </button>
+        </form>
+        <div class="flex flex-col gap-2 mt-6">
+          <p>Already have an account?</p>
+          <custom-button
+            class="btn btn-primary btn-primary-hover"
+            text="Login"
+            href="../login/"
+          ></custom-button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

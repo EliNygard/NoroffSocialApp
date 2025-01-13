@@ -28,7 +28,7 @@ export async function onRegister(event) {
     console.error(error);
     alert(error);
   } finally {
-    window.location.href = "/auth/login/";
+    window.location.href = "/NoroffSocialApp/auth/login/";
     //hide loader
   }
 }

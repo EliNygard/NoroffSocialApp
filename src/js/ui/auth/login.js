@@ -25,7 +25,7 @@ export async function onLogin(event) {
   //show loader
 
   try {
-    const {name} = await api.auth.login(data);
+    const { name } = await api.auth.login(data);
     loginSuccessful = true;
     if (loginSuccessful) {
       window.location.href = `/NoroffSocialApp/?view=profile&name=${name}`;
@@ -33,7 +33,7 @@ export async function onLogin(event) {
   } catch (error) {
     console.error(error);
     alert(error);
-    window.location.href = "/auth/login/";
+    window.location.href = "/NoroffSocialApp/auth/login/";
   } finally {
     //hide loader
   }
